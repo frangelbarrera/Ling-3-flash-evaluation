@@ -1,0 +1,50 @@
+{
+  "phase": "p03_math_advanced",
+  "model_label": "gpt_oss",
+  "model_id": "openai/gpt-oss-20b:free",
+  "prompt": "A train travels 240 km in 4 hours. If it increases its speed by 20 km/h, how long will it take to travel the same 240 km? Show all work.",
+  "timestamp": "2026-07-27T18:06:26.805469+00:00",
+  "result": {
+    "ok": true,
+    "content": "**Step 1 – Find the original speed**\n\nThe train covers 240 km in 4 h.\n\n\\[\n\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}}\n              = \\frac{240\\ \\text{km}}{4\\ \\text{h}}\n              = 60\\ \\text{km/h}\n\\]\n\nSo the train’s original speed is **60 km/h**.\n\n---\n\n**Step 2 – Increase the speed by 20 km/h**\n\n\\[\n\\text{New speed} = 60\\ \\text{km/h} + 20\\ \\text{km/h}\n                 = 80\\ \\text{km/h}\n\\]\n\n---\n\n**Step 3 – Compute the new travel time for the same distance**\n\n\\[\n\\text{Time} = \\frac{\\text{Distance}}{\\text{Speed}}\n            = \\frac{240\\ \\text{km}}{80\\ \\text{km/h}}\n            = 3\\ \\text{h}\n\\]\n\n---\n\n### Result\nWith the speed increased by 20 km/h, the train will take **3 hours** to travel the 240 km.",
+    "reasoning": "We need to solve: original speed = distance/time = 240/4 = 60 km/h. Increase by 20 km/h => new speed = 80 km/h. Time = distance / speed = 240/80 = 3 hours. Show all work. Provide explanation.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 106,
+      "completion_tokens": 315,
+      "total_tokens": 421,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 2.3587e-05,
+        "upstream_inference_prompt_cost": 1.537e-06,
+        "upstream_inference_completions_cost": 2.205e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 58,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 12.3,
+    "error": null,
+    "model_returned": "openai/gpt-oss-20b:free",
+    "raw_id": "gen-1785175574-R794faZmnuPCp9m48c1f"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Train speed word problem",
+      "category": "Math",
+      "expected": {
+        "correct_answer_hours": 3.0
+      },
+      "notes": "Original speed=60 km/h, new speed=80 km/h, 240/80=3 hours"
+    }
+  }
+}

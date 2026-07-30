@@ -1,0 +1,52 @@
+{
+  "phase": "p11_es",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Explain ethical hacking vs malicious hacking. Give 3 examples of each. Respond entirely in Spanish (Español).",
+  "timestamp": "2026-07-27T19:56:01.437562+00:00",
+  "result": {
+    "ok": true,
+    "content": "**Hackeo Ético vs. Hackeo Malicioso**\n\n**Hackeo Ético:**\nEl hackeo ético es la práctica de intentar vulnerar sistemas informáticos, redes o aplicaciones con el permiso explícito y por escrito del propietario. Su objetivo principal es identificar debilidades de seguridad antes de que los ciberdelincuentes las exploten, ayudando a las organizaciones a fortalecer sus defensas y proteger su información. Se realiza de forma legal, profesional y siguiendo un estricto código de conducta.\n\n*Ejemplos de hackeo ético:*\n1. Pruebas de penetración en el sitio web de un banco para descubrir fallos de seguridad y corregirlos antes de que ocurra un ataque real.\n2. Auditorías de vulnerabilidades en las aplicaciones móviles de una empresa para asegurar que los datos personales de los usuarios estén protegidos.\n3. Evaluaciones de seguridad en la red Wi-Fi de una corporación para verificar que no haya accesos no autorizados desde el exterior.\n\n**Hackeo Malicioso:**\nEl hackeo malicioso (o cibercrimen) es la intrusión no autorizada en sistemas informáticos con la intención de causar daño, robar información sensible, obtener beneficios económicos ilícitos o interrumpir servicios críticos. Es ilegal, viola la privacidad de las víctimas y puede conllevar graves consecuencias legales y financieras para los atacantes.\n\n*Ejemplos de hackeo malicioso:*\n1. Ataques de *ransomware* (secuestro de datos) contra hospitales para cifrar sus sistemas y exigir un rescate económico a cambio de las claves de descifrado.\n2. Campañas de *phishing* (suplantación de identidad) mediante correos electrónicos falsos para engañar a los usuarios y robar sus contraseñas y datos bancarios.\n3. Inyección de código malicioso en tiendas en línea para robar las bases de datos completas de los clientes, incluyendo números de tarjetas de crédito.",
+    "reasoning": "1.  **Analyze the Request:**\n    *   Topic: Ethical hacking vs. malicious hacking.\n    *   Requirement 1: Explain the difference.\n    *   Requirement 2: Give 3 examples of each.\n    *   Requirement 3: Respond *entirely* in Spanish (Español).\n\n2.  **Deconstruct the Topic:**\n    *   *Ethical Hacking (Hackeo Ético):* Authorized, legal, aims to improve security, find vulnerabilities before bad actors do, follows a code of conduct/contract.\n    *   *Malicious Hacking (Hackeo Malicioso):* Unauthorized, illegal, aims to exploit vulnerabilities for personal gain, theft, damage, or disruption.\n\n3.  **Draft the Explanations (in Spanish):**\n    *   *Ético:* El hackeo ético es la práctica de buscar vulnerabilidades en sistemas informáticos, redes o aplicaciones con el permiso explícito del propietario. Su objetivo es mejorar la seguridad, proteger datos y prevenir ataques reales. Se realiza de manera legal y siguiendo un código de conducta estricto.\n    *   *Malicioso:* El hackeo malicioso (o cibercrimen) es la intrusión no autorizada en sistemas informáticos con la intención de causar daño, robar información, obtener beneficios económicos ilícitos o interrumpir servicios. Es ilegal y viola la privacidad y la seguridad de las víctimas.\n\n4.  **Draft the Examples (3 for each, in Spanish):**\n    *   *Ethical Hacking Examples:*\n        1.  Pruebas de penetración (Penetration testing) en el sitio web de un banco para encontrar fallos antes de los hackers.\n        2.  Auditorías de seguridad en las aplicaciones móviles de una empresa para corregir errores de programación.\n        3.  Evaluaciones de vulnerabilidades en la red Wi-Fi de una corporación para asegurar que no haya accesos no autorizados.\n    *   *Malicious Hacking Examples:*\n        1.  Ataques de ransomware (secuestro de datos) a hospitales para exigir rescate.\n        2.  Phishing (suplantación de identidad) para robar contraseñas y datos bancarios de usuarios incautos.\n        3.  Inyección de SQL en una tienda en línea para robar la base de datos completa de clientes y tarjetas de crédito.\n\n5.  **Review and Refine (Checking constraints):**\n    *   Is it entirely in Spanish? Yes.\n    *   Are there 3 examples of each? Yes.\n    *   Is the explanation clear? Yes.\n\n6.  **Final Polish (Spanish):**\n    **Hackeo Ético vs. Hackeo Malicioso**\n\n    **Hackeo Ético:**\n    El hackeo ético es la práctica de intentar vulnerar sistemas informáticos, redes o aplicaciones con el permiso explícito y por escrito del propietario. Su objetivo principal es identificar debilidades de seguridad antes de que los ciberdelincuentes las exploten, ayudando a las organizaciones a fortalecer sus defensas. Se realiza de forma legal, profesional y siguiendo un estricto código de conducta.\n\n    *Ejemplos de hackeo ético:*\n    1. Pruebas de penetración en el sitio web de un banco para descubrir fallos de seguridad y corregirlos antes de un ataque real.\n    2. Auditorías de vulnerabilidades en las aplicaciones móviles de una empresa para asegurar que los datos de los usuarios estén protegidos.\n    3. Evaluaciones de seguridad en la red Wi-Fi de una corporación para verificar que no haya accesos no autorizados desde el exterior.\n\n    **Hackeo Malicioso:**\n    El hackeo malicioso (o cibercrimen) es la intrusión no autorizada en sistemas informáticos con la intención de causar daño, robar información sensible, obtener beneficios económicos ilícitos o interrumpir servicios. Es ilegal, viola la privacidad de las víctimas y puede conllevar graves consecuencias legales y financieras.\n\n    *Ejemplos de hackeo malicioso:*\n    1. Ataques de ransomware (secuestro de datos) contra hospitales para cifrar sus sistemas y exigir un rescate económico a cambio de las claves de descifrado.\n    2. Campañas de phishing (suplantación de identidad) mediante correos electrónicos falsos para engañar a los usuarios y robar sus contraseñas y datos bancarios.\n    3. Inyección de código malicioso en tiendas en línea para robar las bases de datos completas de los clientes, incluyendo números de tarjetas de crédito.\n\n7.  **Final Check against constraints:** Entirely in Spanish? Yes. 3 examples of each? Yes. Explains the difference? Yes. No English words used (except maybe standard tech terms like \"ransomware\" or \"phishing\" which are commonly used in Spanish cybersecurity, but I will keep them as they are standard, or translate them if possible to be 100% pure Spanish: \"secuestro de datos\", \"suplantación de identidad\"). The output looks solid.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 42,
+      "completion_tokens": 1797,
+      "total_tokens": 1839,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1154,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 5.47,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182156-lJWT4Yw6zAvlcbcaUg7X"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Multilingual: ethical hacking in Spanish",
+      "category": "Multilingual",
+      "expected": {
+        "language_correct": "Spanish",
+        "examples_each": 3,
+        "no_english_mixing": true
+      },
+      "notes": "French phase flagged in original report as 0-char failure; using max_tokens=2500."
+    }
+  }
+}

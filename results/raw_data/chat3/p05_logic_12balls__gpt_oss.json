@@ -1,0 +1,50 @@
+{
+  "phase": "p05_logic_12balls",
+  "model_label": "gpt_oss",
+  "model_id": "openai/gpt-oss-20b:free",
+  "prompt": "You have 12 balls, identical in appearance. One is either heavier or lighter than the others. Using a balance scale only 3 times, find the odd ball AND determine whether it is heavier or lighter. Describe your algorithm step by step.",
+  "timestamp": "2026-07-27T18:17:51.875424+00:00",
+  "result": {
+    "ok": true,
+    "content": "**Goal** – In only three weighings on a balance scale, identify which one of the 12 balls is the odd one and decide whether it is heavier or lighter.\n\nThe classic solution uses a *ternary* decision tree: each weighing has three possible outcomes (left heavy, right heavy, or balance).  \nWith 3 weighings we can distinguish \\(3^3 = 27\\) different outcomes, and we need to distinguish 24 possibilities (12 balls × “heavier or lighter”).  \nSo the problem is solvable.\n\nBelow is a step‑by‑step algorithm that works for any set of 12 identical‑looking balls.\n\n---\n\n## 1. Label the balls\n\nGive the balls convenient labels so you can keep track of them:\n\n```\nA  B  C  D  E  F  G  H  I  J  K  L\n```\n\n---\n\n## 2. First weighing\n\n**Weigh 4 balls against 4 other balls**\n\n```\nLeft pan : A  B  C  D\nRight pan: E  F  G  H\n```\n\nThere are three possible outcomes.\n\n| Outcome | What it tells you |\n|---------|-------------------|\n| **Balance** | The odd ball is one of the remaining 4 (I, J, K, L). |\n| **Left heavy** | The odd ball is either a *heavy* ball among A‑D or a *light* ball among E‑H. |\n| **Right heavy** | The odd ball is either a *heavy* ball among E‑H or a *light* ball among A‑D. |\n\n---\n\n## 3. Second weighing – two separate “branches”\n\n### 3a. If the first weighing balanced\n\nWe now know the odd ball is in {I, J, K, L}.  \n**Weigh**:\n\n```\nLeft pan : I  J  A  B\nRight pan: K  L  C  D\n```\n\n(Use two “known normal” balls A, B, C, D to keep the scale balanced if the odd ball is not among I–L.)\n\nOutcomes:\n\n| Outcome | Interpretation |\n|---------|----------------|\n| **Balance** | The odd ball is **not** I, J, K, or L – impossible, so this outcome cannot happen. |\n| **Left heavy** | The odd ball is **I** (heavy) or **J** (heavy) or **K** (light) or **L** (light). |\n| **Right heavy** | The odd ball is **K** (heavy) or **L** (heavy) or **I** (light) or **J** (light). |\n\n### 3b. If the first weighing was unbalanced\n\nAssume the first weighing was **left heavy** (the other case is symmetric).  \nWe now know the odd ball is either:\n\n- a *heavy* ball among A, B, C, D, or\n- a *light* ball among E, F, G, H.\n\n**Weigh**:\n\n```\nLeft pan : A  B  E  F\nRight pan: C  D  G  H\n```\n\n(Again, we mix suspected heavy and suspected light balls.)\n\nOutcomes:\n\n| Outcome | Interpretation |\n|---------|----------------|\n| **Balance** | The odd ball is **not** among A, B, C, D, E, F, G, H – impossible, so this outcome cannot happen. |\n| **Left heavy** | The odd ball is **A** (heavy) or **B** (heavy) or **G** (light) or **H** (light). |\n| **Right heavy** | The odd ball is **C** (heavy) or **D** (heavy) or **E** (light) or **F** (light). |\n\n(The “right heavy” case is the mirror image of “left heavy.”)\n\n---\n\n## 4. Third weighing – final identification\n\nAt this point we have narrowed the odd ball down to **four candidates** and we know whether it is heavy or light.  \nThe third weighing will distinguish among those four.\n\n### 4a. Branch from 3a (first weighing balanced)\n\nWe have four candidates: I, J, K, L.  \nWe also know the *type* (heavy or light) from the second weighing outcome.\n\n**Weigh**:\n\n```\nLeft pan : I  J\nRight pan: K  L\n```\n\nInterpretation:\n\n| Outcome | Result |\n|---------|--------|\n| **Balance** | The odd ball is the one that was *not* on the scale in this weighing (i.e., the one that was omitted). Its type (heavy/light) is the one that made the second weighing unbalanced. |\n| **Left heavy** | The odd ball is **I** (heavy) or **J** (heavy). |\n| **Right heavy** | The odd ball is **K** (heavy) or **L** (heavy). |\n\nIf the second weighing had indicated that the odd ball is *light*, simply reverse the “heavy”/“light” labels in the table above.\n\n### 4b. Branch from 3b (first weighing unbalanced)\n\nWe have four candidates: two suspected heavy and two suspected light.  \nAgain we know the *type* from the second weighing outcome.\n\n**Weigh**:\n\n```\nLeft pan : A  B\nRight pan: E  F\n```\n\nInterpretation:\n\n| Outcome | Result |\n|---------|--------|\n| **Balance** | The odd ball is the one that was *not* on the scale in this weighing (i.e., the one that was omitted). Its type is the one that made the second weighing unbalanced. |\n| **Left heavy** | The odd ball is **A** (heavy) or **B** (heavy). |\n| **Right heavy** | The odd ball is **E** (light) or **F** (light). |\n\n(If the second weighing had indicated the odd ball is *light*, swap the “heavy”/“light” labels accordingly.)\n\n---\n\n## 5. Summary of the decision tree\n\n| Step | Weighing | Outcome | Candidates left | Type known? |\n|------|----------|---------|-----------------|-------------|\n| 1 | A‑D vs E‑H | Balance | I, J, K, L | No |\n| 1 | A‑D vs E‑H | Left heavy | A‑D (heavy) or E‑H (light) | No |\n| 1 | A‑D vs E‑H | Right heavy | E‑H (heavy) or A‑D (light) | No |\n| 2 | (Branch 3a) I‑J‑A‑B vs K‑L‑C‑D | Balance | Impossible | No |\n| 2 | (Branch 3a) I‑J‑A‑B vs K‑L‑C‑D | Left heavy | I, J (heavy) or K, L (light) | Yes |\n| 2 | (Branch 3a) I‑J‑A‑B vs K‑L‑C‑D | Right heavy | K, L (heavy) or I, J (light) | Yes |\n| 2 | (Branch 3b) A‑B‑E‑F vs C‑D‑G‑H | Balance | Impossible | No |\n| 2 | (Branch 3b) A‑B‑E‑F vs C‑D‑G‑H | Left heavy | A, B (heavy) or G, H (light) | Yes |\n| 2 | (Branch 3b) A‑B‑E‑F vs C‑D‑G‑H | Right heavy | C, D (heavy) or E, F (light) | Yes |\n| 3 | (Branch 4a) I‑J vs K‑L | Balance | The omitted ball (type from step 2) | Yes |\n| 3 | (Branch 4a) I‑J vs K‑L | Left heavy | I or J (heavy) | Yes |\n| 3 | (Branch 4a) I‑J vs K‑L | Right heavy | K or L (heavy) | Yes |\n| 3 | (Branch 4b) A‑B vs E‑F | Balance | The omitted ball (type from step 2) | Yes |\n| 3 | (Branch 4b) A‑B vs E‑F | Left heavy | A or B (heavy) | Yes |\n| 3 | (Branch 4b) A‑B vs E‑F | Right heavy | E or F (light) | Yes |\n\nThus, after the third weighing you will know exactly which ball is odd and whether it is heavier or lighter.\n\n---\n\n## 6. Why it works\n\n- **First weighing** splits the 12 balls into two groups of 8 and 4.  \n  The outcome tells us whether the odd ball is in the weighed group or in the un‑weighed group, and whether it is heavy or light (but not both at once).\n\n- **Second weighing** mixes suspected heavy and suspected light balls in a way that any imbalance will immediately reveal the *type* (heavy or light) of the odd ball and reduce the candidate set to 4.\n\n- **Third weighing** is a simple comparison of the two remaining candidates of the same type, which always resolves the identity.\n\nBecause each weighing has 3 possible outcomes, the total number of distinguishable cases after 3 weighings is \\(3^3 = 27\\), comfortably covering the 24 possibilities (12 balls × 2 types). The algorithm above is the classic optimal solution.",
+    "reasoning": "We need to describe the classic 12-ball problem solution. Provide step-by-step algorithm. Use balance scale 3 weighings. Provide explanation. Provide algorithm: weigh 4 vs 4, etc. Provide details. Provide decision tree. Provide final answer. Let's craft.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 2104,
+      "total_tokens": 2220,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000148962,
+        "upstream_inference_prompt_cost": 1.682e-06,
+        "upstream_inference_completions_cost": 0.00014728
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 55,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 48.59,
+    "error": null,
+    "model_returned": "openai/gpt-oss-20b:free",
+    "raw_id": "gen-1785176223-SnO3cgt8QAOSWq2Dg6Bc"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "12 balls / find odd one in 3 weighings",
+      "category": "Logic",
+      "expected": {
+        "provides_3_weighing_solution": true
+      },
+      "notes": "Classic puzzle; requires >2k tokens due to long reasoning. Original report said this produced 0 chars."
+    }
+  }
+}

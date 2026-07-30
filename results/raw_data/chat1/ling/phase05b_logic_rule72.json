@@ -1,0 +1,20 @@
+{
+  "phase": "phase05b_logic_rule72",
+  "label": "phase05b_logic_rule72",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "If a company's revenue grows 10% annually, how many years until it doubles? Explain the Rule of 72.",
+  "max_tokens": 1500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "# The Rule of 72\n\n## The Short Answer\nAt **10% annual growth**, it takes approximately **7.2 years** for revenue to double.\n\n---\n\n## What Is the Rule of 72?\n\nThe Rule of 72 is a simple mental math shortcut to estimate **how long it takes for something growing at a fixed rate to double**.\n\n### Formula:\n\n$$\\text{Years to Double} \\approx \\frac{72}{\\text{Annual Growth Rate (\\%)}}$$\n\n### Applying It:\n$$\\frac{72}{10} = 7.2 \\text{ years}$$\n\n---\n\n## Why Does It Work?\n\nThe exact doubling time uses compound growth math:\n\n$$2 = (1 + r)^t \\implies t = \\frac{\\ln(2)}{\\ln(1 + r)}$$\n\nFor 10% growth:\n$$t = \\frac{0.6931}{\\ln(1.10)} = \\frac{0.6931}{0.09531} \\approx 7.27 \\text{ years}$$\n\nThe Rule of 72 gives **7.2 years** — remarkably close!\n\n---\n\n## Why 72 Specifically?\n\n- **72** has many divisors (1, 2, 3, 4, 6, 8, 9, 12…), making mental division easy.\n- The \"true\" constant is **69.3** (since ln(2) × 100 ≈ 69.3), but 72 is preferred because:\n  - It's more accurate for **common growth rates** (6%–10%)\n  - It's easier to divide by in your head\n\n---\n\n## Quick Reference Table\n\n| Growth Rate | Rule of 72 | Exact Answer |\n|:-----------:|:----------:|:------------:|\n| 4%          | 18 years   | 17.7 years   |\n| 6%          | 12 years   | 11.9 years   |\n| **10%**     | **7.2 yrs**| **7.27 yrs** |\n| 12%         | 6 years    | 6.12 years   |\n\n---\n\n## Key Takeaway\n\n> The Rule of 72 turns a complex exponential calculation into a **one-step division** — making it one of the most useful mental math tools in finance and business.",
+  "reasoning": "The user is asking two things:\n1. How many years until a company's revenue doubles if it grows 10% annually?\n2. An explanation of the Rule of 72.\n\nLet me work through this:\n\n**The Rule of 72:**\nThe Rule of 72 is a simple mental math shortcut used to estimate the number of years required to double an investment (or revenue, or any growing quantity) at a fixed annual rate of return/growth. You simply divide 72 by the annual growth rate (expressed as a whole number).\n\nFormula: Years to double ≈ 72 / annual growth rate (%)\n\n**Applying it:**\n- Growth rate = 10%\n- Years ≈ 72 / 10 = 7.2 years\n\n**Verification with exact math:**\nThe exact formula is: 2 = (1 + r)^t, so t = ln(2) / ln(1 + r)\nt = ln(2) / ln(1.10) = 0.6931 / 0.09531 ≈ 7.27 years\n\nSo the Rule of 72 gives 7.2 years, which is very close to the exact answer of ~7.27 years.\n\n**Why 72?**\n72 is chosen because it has many small divisors (1, 2, 3, 4, 6, 8, 9, 12, etc.), making mental division easy. It also happens to be a good approximation for a wide range of common interest/growth rates (roughly 6% to 10%). The exact mathematical constant is ln(2) × 100 ≈ 69.3, but 72 is preferred for its divisibility and slightly better accuracy at common rates due to compounding adjustments.",
+  "content_len": 1522,
+  "reasoning_len": 1243,
+  "completion_tokens": 968,
+  "prompt_tokens": 47,
+  "total_tokens": 1015,
+  "finish_reason": "stop",
+  "latency_s": 2.99,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

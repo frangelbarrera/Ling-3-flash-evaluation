@@ -1,0 +1,35 @@
+{
+  "phase": "p25_bug_nemotron_mt400",
+  "model_label": "nemotron",
+  "model_id": "nvidia/nemotron-3-super-120b-a12b:free",
+  "prompt": "Reply with exactly the word: PONG",
+  "timestamp": "2026-07-27T18:46:17.837839+00:00",
+  "result": {
+    "max_tokens": 400,
+    "ok": true,
+    "content": "PONG",
+    "reasoning": "",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 13,
+      "completion_tokens": 24,
+      "completion_tokens_details": {
+        "reasoning_tokens": 24
+      }
+    },
+    "elapsed_s": 2.0,
+    "error": null,
+    "model_returned": "nvidia/nemotron-3-super-120b-a12b:free",
+    "raw_id": "probe3-nemotron"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Phase 25 bug check: Nemotron-3-Super-120b mt=400",
+      "category": "BugVerification",
+      "expected": {
+        "produces_output": true
+      },
+      "notes": "Nemotron comparison: 24 reasoning tokens, produced output."
+    }
+  }
+}

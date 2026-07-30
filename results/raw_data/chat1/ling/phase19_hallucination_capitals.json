@@ -1,0 +1,19 @@
+{
+  "phase": "phase19_hallucination_capitals",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "What is the capital city of each of these countries? Answer in a numbered list, country: capital format.\n\n1. Australia\n2. Brazil\n3. Kazakhstan\n4. Ivory Coast (Côte d'Ivoire)\n5. Myanmar",
+  "max_tokens": 1500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "1. Australia: Canberra\n2. Brazil: Brasília\n3. Kazakhstan: Astana\n4. Ivory Coast (Côte d'Ivoire): Yamoussoukro\n5. Myanmar: Naypyidaw",
+  "reasoning": "The user wants the capital cities of five countries in a numbered list format. Let me go through each one:\n\n1. Australia - Canberra\n2. Brazil - Brasília\n3. Kazakhstan - Astana (formerly Nur-Sultan, but it was reverted back to Astana in 2022)\n4. Ivory Coast (Côte d'Ivoire) - Yamoussoukro (official capital), but Abidjan is the economic center/de facto seat of government. The official capital is Yamoussoukro.\n5. Myanmar - Naypyidaw\n\nLet me format these properly.",
+  "content_len": 131,
+  "reasoning_len": 463,
+  "completion_tokens": 177,
+  "prompt_tokens": 73,
+  "total_tokens": 250,
+  "finish_reason": "stop",
+  "latency_s": 1.29,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

@@ -1,0 +1,8 @@
+# Ling-3.0-flash Independent Evaluation — Python Dependencies
+# Tested with Python 3.11+
+
+# Core API client (used by raw_data/scripts/v3_infra.py)
+requests>=2.31.0
+
+# JSONL validation (standard library json is sufficient, but jq is useful for CLI)
+# Install jq via your system package manager: apt install jq / brew install jq

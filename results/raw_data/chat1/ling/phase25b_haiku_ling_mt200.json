@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_ling_mt200",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 200,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "",
+  "reasoning": "1.  **Analyze the Request:**\n    *   Topic: SQL injection.\n    *   Format: Haiku (3 lines).\n    *   Syllable structure: 5-7-5.\n    *   Constraint: No explanation, just the haiku.\n\n2.  **Deconstruct the Topic (SQL Injection):**\n    *   Malicious code inserted into a query.\n    *   Bypassing security.\n    *   Data theft/destruction.\n    *   Keywords: SQL, query, drop, steal, code, strings, quote, inject.\n\n3.  **Drafting - Line 1 (5 syllables):**\n    *   *Ma-licious strings in-ject* (6) - No.\n    *   *Drop ta-ble with code* (5) - Drop (1) ta (1) ble (1) with (1) code (1)",
+  "content_len": 0,
+  "reasoning_len": 574,
+  "completion_tokens": 200,
+  "prompt_tokens": 58,
+  "total_tokens": 258,
+  "finish_reason": "length",
+  "latency_s": 1.21,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_gptoss_mt1000",
+  "model": "openai/gpt-oss-20b:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 1000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "Hidden code whispers danger  \nSQL injection slips through walls softly  \nData lost in hush",
+  "reasoning": "We need to produce a haiku about SQL injection. 3 lines, 5-7-5 syllables. No explanation. Just the haiku. Must be about SQL injection. Let's craft.\n\nLine1: 5 syllables. \"Code whispers danger\" - count: Code(1) whis-pers(2) dan-ger(3) = 3. Need 5. Maybe \"Hidden code whispers\" - Hidden(2) code(3) whis-pers(4) = 4. Need 5. \"Hidden code whispers danger\" - Hidden(2) code(3) whis-pers(4) dan-ger(5). Good 5.\n\nLine2: 7 syllables. \"SQL injection slips through walls\" Count: SQL(1) in-ject-ion(3) slips(4) through(5) walls(6). Need 7. Maybe \"SQL injection slips through walls\" is 6. Add \"softly\" at end: softly(7). So line2: \"SQL injection slips through walls softly\". Count: SQL(1) in-ject-ion(3) slips(4) through(5) walls(6) soft-ly(7). Good.\n\nLine3: 5 syllables. \"Data lost in silence\" Count: Data(2) lost(3) in(4) si-lence(6). Too many. Maybe \"Data lost in hush\". Data(2) lost(3) in(4) hush(5). Good.\n\nCheck syllable counts:\n\nLine1: Hidden(2) code(3) whis-pers(4) dan-ger(5). Good.\n\nLine2: SQL(1) in-ject-ion(3) slips(4) through(5) walls(6) soft-ly(7). Good.\n\nLine3: Data(2) lost(3) in(4) hush(5). Good.\n\nAll good. Provide just the haiku.",
+  "content_len": 90,
+  "reasoning_len": 1135,
+  "completion_tokens": 433,
+  "prompt_tokens": 105,
+  "total_tokens": 538,
+  "finish_reason": "stop",
+  "latency_s": 13.1,
+  "model_returned": "openai/gpt-oss-20b:free"
+}

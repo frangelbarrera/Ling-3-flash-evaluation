@@ -1,0 +1,54 @@
+{
+  "phase": "p07b_sql_top5",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a SQL query to find the top 5 customers by total purchase amount in the last 30 days. Assume tables `customers(id, name, email)` and `orders(id, customer_id, total_amount, created_at)`. Include JOINs and aggregations. Explain your query.",
+  "timestamp": "2026-07-27T19:55:17.174813+00:00",
+  "result": {
+    "ok": true,
+    "content": "# SQL Query: Top 5 Customers by Total Purchase (Last 30 Days)\n\n```sql\nSELECT\n    c.id          AS customer_id,\n    c.name        AS customer_name,\n    c.email,\n    COUNT(o.id)   AS total_orders,\n    SUM(o.total_amount) AS total_purchase_amount\nFROM\n    customers c\nINNER JOIN\n    orders o ON c.id = o.customer_id\nWHERE\n    o.created_at >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY\n    c.id, c.name, c.email\nORDER BY\n    total_purchase_amount DESC\nLIMIT 5;\n```\n\n---\n\n## Explanation — Clause by Clause\n\n### 1. `INNER JOIN`\n```sql\nINNER JOIN orders o ON c.id = o.customer_id\n```\n- Links each customer to their corresponding orders via the foreign key `customer_id`.\n- **`INNER JOIN`** ensures we only include customers who **have at least one order** in the period (customers with no orders are excluded).\n\n### 2. `WHERE` — Date Filter\n```sql\nWHERE o.created_at >= CURRENT_DATE - INTERVAL '30 days'\n```\n- Filters orders to only those created **within the last 30 days**.\n- `CURRENT_DATE - INTERVAL '30 days'` computes the date 30 days ago from today.\n- ⚠️ **Note:** Syntax varies by database:\n  | Database | Syntax |\n  |---|---|\n  | PostgreSQL | `CURRENT_DATE - INTERVAL '30 days'` |\n  | MySQL | `CURDATE() - INTERVAL 30 DAY` |\n  | SQL Server | `DATEADD(DAY, -30, GETDATE())` |\n  | SQLite | `DATE('now', '-30 days')` |\n\n### 3. `GROUP BY` — Aggregation\n```sql\nGROUP BY c.id, c.name, c.email\n```\n- Groups rows by each unique customer so we can compute **per-customer** metrics.\n- All non-aggregated columns in `SELECT` must appear in `GROUP BY`.\n\n### 4. Aggregation Functions\n```sql\nCOUNT(o.id)   AS total_orders,\nSUM(o.total_amount) AS total_purchase_amount\n```\n- **`COUNT(o.id)`** — counts the number of orders per customer.\n- **`SUM(o.total_amount)`** — sums the total spending per customer.\n\n### 5. `ORDER BY ... DESC`\n```sql\nORDER BY total_purchase_amount DESC\n```\n- Sorts customers from **highest** to **lowest** total purchase amount.\n\n### 6. `LIMIT 5`\n```sql\nLIMIT 5\n```\n- Restricts the result to the **top 5** customers only.\n\n---\n\n## Sample Output\n\n| customer_id | customer_name | email | total_orders | total_purchase_amount |\n|---|---|---|---|---|\n| 42 | Alice Johnson | alice@email.com | 8 | 12500.00 |\n| 17 | Bob Smith | bob@email.com | 5 | 9800.50 |\n| 88 | Carol Lee | carol@email.com | 12 | 8750.00 |\n| 31 | Dave Patel | dave@email.com | 3 | 7200.00 |\n| 56 | Eve Wong | eve@email.com | 6 | 6100.75 |\n\n---\n\n## Key Considerations\n\n- **Ties:** If multiple customers share the 5th rank, `LIMIT 5` will arbitrarily cut off. Use `WITH TIES` (SQL Server) or `RANK()` (standard SQL) if you need all tied customers.\n- **NULL handling:** `SUM` ignores `NULL` values in `total_amount`. If `total_amount` could be `NULL`, consider using `COALESCE(o.total_amount, 0)`.\n- **Performance:** Ensure there's an **index** on `orders(customer_id)` and `orders(created_at)` for large datasets.",
+    "reasoning": "The user wants a SQL query that:\n1. Finds the top 5 customers by total purchase amount\n2. In the last 30 days\n3. Uses JOINs between customers and orders tables\n4. Uses aggregations (SUM)\n5. Needs an explanation of the query\n\nLet me construct this step by step:\n\n- JOIN customers with orders on customer_id\n- Filter orders where created_at is within the last 30 days\n- GROUP BY customer to get total purchase amount per customer\n- ORDER BY total purchase amount descending\n- LIMIT to top 5\n\nI should also consider edge cases and explain each clause clearly.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 79,
+      "completion_tokens": 1073,
+      "total_tokens": 1152,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 144,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 3.32,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182114-59T1msCpKB2ka5ZhiWQf"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "SQL: top 5 customers by spend in last 30 days",
+      "category": "Coding",
+      "expected": {
+        "uses_join": true,
+        "uses_group_by": true,
+        "uses_order_by": true,
+        "uses_limit_5": true,
+        "uses_date_filter": true
+      },
+      "notes": ""
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "phase": "s04_pong_inclreason_rep1",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Reply with exactly the word: PONG",
+  "timestamp": "2026-07-27T19:52:34.565709+00:00",
+  "result": {
+    "ok": true,
+    "content": "PONG",
+    "reasoning": "1.  **Analyze the Request:** The user wants me to reply with exactly the word \"PONG\".\n2.  **Analyze the Constraints:** The reply must be *exactly* the word \"PONG\". No extra text, no punctuation (unless specified, but \"exactly the word\" usually implies just the word itself), no formatting.\n3.  **Formulate the Output:** PONG\n4.  **Verify:** Does the output match the constraint? Yes.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 28,
+      "completion_tokens": 104,
+      "total_tokens": 132,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 97,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 1.68,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785181952-BfmuTLSgavOhIIJhSfTC",
+    "extra_body_used": {
+      "include_reasoning": true
+    }
+  },
+  "extra": {
+    "test": "include_reasoning",
+    "rep": 1
+  }
+}

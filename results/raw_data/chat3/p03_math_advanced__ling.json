@@ -1,0 +1,50 @@
+{
+  "phase": "p03_math_advanced",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "A train travels 240 km in 4 hours. If it increases its speed by 20 km/h, how long will it take to travel the same 240 km? Show all work.",
+  "timestamp": "2026-07-27T18:05:28.413490+00:00",
+  "result": {
+    "ok": true,
+    "content": "**Step 1: Find the original speed**\n\n$$\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}} = \\frac{240 \\text{ km}}{4 \\text{ hours}} = 60 \\text{ km/h}$$\n\n**Step 2: Find the new speed**\n\n$$\\text{New speed} = 60 + 20 = 80 \\text{ km/h}$$\n\n**Step 3: Find the new time**\n\n$$\\text{Time} = \\frac{\\text{Distance}}{\\text{Speed}} = \\frac{240 \\text{ km}}{80 \\text{ km/h}} = 3 \\text{ hours}$$\n\n**Answer:** It will take **3 hours** to travel the same 240 km at the increased speed.",
+    "reasoning": "This is a straightforward distance-rate-time problem.\n\nStep 1: Find the original speed.\nDistance = 240 km, Time = 4 hours\nSpeed = Distance / Time = 240 / 4 = 60 km/h\n\nStep 2: Find the new speed after increasing by 20 km/h.\nNew speed = 60 + 20 = 80 km/h\n\nStep 3: Find the new time to travel the same 240 km at the new speed.\nTime = Distance / Speed = 240 / 80 = 3 hours",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 64,
+      "completion_tokens": 315,
+      "total_tokens": 379,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 95,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 2.97,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785175525-66y71QvFFNM8rpOpTYxu"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Train speed word problem",
+      "category": "Math",
+      "expected": {
+        "correct_answer_hours": 3.0
+      },
+      "notes": "Original speed=60 km/h, new speed=80 km/h, 240/80=3 hours"
+    }
+  }
+}

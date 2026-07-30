@@ -1,0 +1,50 @@
+{
+  "phase": "ag02_windows_triage_noreasoning",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "I just got a Windows 10 endpoint that I suspect is compromised. I have admin access via PSExec. Give me 5 PowerShell commands (one per line, no commentary between) that I should run FIRST, in order, to triage the host. Each command must save its output to a file in C:\\IR\\<hostname>\\. The goal is to capture volatile data before the user reboots. After the 5 commands, give a one-paragraph explanation of why THIS order.",
+  "timestamp": "2026-07-27T20:23:17.226867+00:00",
+  "result": {
+    "ok": true,
+    "content": "New-Item -Path \"C:\\IR\\$env:COMPUTERNAME\" -ItemType Directory -Force; Get-Process | Select-Object Id,ProcessName,Path,CommandLine,CPU,StartTime,Owner | Export-Csv -NoTypeInformation \"C:\\IR\\$env:COMPUTERNAME\\processes.csv\"; Get-NetTCPConnection -State Established,Listen,CloseWait,TimeWait | Select-Object LocalAddress,LocalPort,RemoteAddress,RemotePort,OwningProcess,State,ApplyTo | Export-Csv -NoTypeInformation \"C:\\IR\\$env:COMPUTERNAME\\netstat.csv\"; Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4624,4625,4634,4647,4648,4768,4769,4770,4771,4776,4778,4779} -MaxEvents 1000 -ErrorAction SilentlyContinue | Select-Object TimeCreated,Id,Message | Export-Csv -NoTypeInformation \"C:\\IR\\$env:COMPUTERNAME\\security_events.csv\"; reg export HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run \"C:\\IR\\$env:COMPUTERNAME\\run_keys.reg\" 2>$null; reg export HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run \"C:\\IR\\$env:COMPUTERNAME\\run_keys_user.reg\" 2>$null; wmic process list full /format:csv > \"C:\\IR\\$env:COMPUTERNAME\\wmic_processes.csv\"",
+    "reasoning": "",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 121,
+      "completion_tokens": 347,
+      "total_tokens": 468,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 1.8,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785183795-lax7iPkNRHxm5FA0SMnI",
+    "reasoning_disabled": true
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "ag02_windows_triage (reasoning disabled)",
+      "category": "Agentic/DFIR",
+      "max_tokens": 3000,
+      "temperature": 0.3,
+      "notes": "Reasoning disabled via reasoning.enabled=false to verify workaround"
+    }
+  }
+}

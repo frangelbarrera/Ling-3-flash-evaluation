@@ -1,0 +1,35 @@
+{
+  "phase": "p25_bug_ling_mt50",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Reply with exactly the word: PONG",
+  "timestamp": "2026-07-27T18:46:17.837227+00:00",
+  "result": {
+    "max_tokens": 50,
+    "ok": true,
+    "content": "",
+    "reasoning": "",
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 13,
+      "completion_tokens": 46,
+      "completion_tokens_details": {
+        "reasoning_tokens": 46
+      }
+    },
+    "elapsed_s": 1.0,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "probe2-mt50"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Phase 25 bug check: Ling mt=50",
+      "category": "BugVerification",
+      "expected": {
+        "produces_output": false
+      },
+      "notes": "Trivial PONG prompt at varying max_tokens. Probe2 data."
+    }
+  }
+}

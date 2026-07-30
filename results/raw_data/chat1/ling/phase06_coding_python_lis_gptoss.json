@@ -1,0 +1,20 @@
+{
+  "phase": "phase06_coding_python_lis_gptoss",
+  "label": "phase06_coding_python_lis_gptoss",
+  "model": "openai/gpt-oss-20b:free",
+  "prompt": "Write a Python function that finds the length of the longest increasing subsequence (LIS) in a list of integers. Use dynamic programming. Include type hints, a docstring, and at least 2 test cases.",
+  "max_tokens": 3000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "Here is a compact, type‑annotated implementation that uses the classic \\(O(n^2)\\) dynamic‑programming approach to compute the length of the longest increasing subsequence (LIS) in a list of integers.\n\n```python\nfrom typing import List\n\ndef lis_length(nums: List[int]) -> int:\n    \"\"\"\n    Return the length of the longest strictly increasing subsequence in *nums*.\n\n    The algorithm runs in O(n²) time and O(n) space, where n is the length of\n    the input list.  It builds a table `dp` where `dp[i]` is the length of the\n    LIS that ends at index `i`.  For each element we look back at all\n    previous elements that are smaller and take the maximum.\n\n    Parameters\n    ----------\n    nums : List[int]\n        A list of integers.\n\n    Returns\n    -------\n    int\n        Length of the longest increasing subsequence.  If the input list is\n        empty the function returns 0.\n\n    Examples\n    --------\n    >>> lis_length([10, 9, 2, 5, 3, 7, 101, 18])\n    4\n    >>> lis_length([0, 1, 0, 3, 2, 3])\n    4\n    \"\"\"\n    n = len(nums)\n    if n == 0:\n        return 0\n\n    # dp[i] = length of LIS ending at index i\n    dp: List[int] = [1] * n\n\n    for i in range(1, n):\n        for j in range(i):\n            if nums[j] < nums[i]:\n                dp[i] = max(dp[i], dp[j] + 1)\n\n    return max(dp)\n\n\n# --------------------------------------------------------------------------- #\n# Test cases\n# --------------------------------------------------------------------------- #\n\ndef _run_tests() -> None:\n    # Test 1: Classic example\n    assert lis_length([10, 9, 2, 5, 3, 7, 101, 18]) == 4, \"Test 1 failed\"\n\n    # Test 2: Multiple equal elements, should still be strictly increasing\n    assert lis_length([0, 1, 0, 3, 2, 3]) == 4, \"Test 2 failed\"\n\n    # Test 3: All decreasing – LIS length should be 1\n    assert lis_length([5, 4, 3, 2, 1]) == 1, \"Test 3 failed\"\n\n    # Test 4: Empty list – LIS length should be 0\n    assert lis_length([]) == 0, \"Test 4 failed\"\n\n    # Test 5: Already sorted – LIS length equals list length\n    assert lis_length([1, 2, 3, 4, 5]) == 5, \"Test 5 failed\"\n\n    print(\"All tests passed!\")\n\n\nif __name__ == \"__main__\":\n    _run_tests()\n```\n\n### How it works\n\n1. **Base case** – If the input list is empty, the LIS length is `0`.\n2. **DP array** – `dp[i]` stores the length of the longest increasing subsequence that ends at index `i`.  \n   Initially every element can form a subsequence of length `1` (just itself).\n3. **Nested loops** – For each `i`, we look at all previous indices `j < i`.  \n   If `nums[j] < nums[i]`, we can extend the subsequence ending at `j` by `nums[i]`.  \n   We keep the maximum such extension in `dp[i]`.\n4. **Result** – The answer is the maximum value in `dp`, because the LIS can end at any index.\n\nThe test suite covers a variety of scenarios: a standard example, handling of equal elements, decreasing sequences, empty input, and already sorted input. Running the script prints `\"All tests passed!\"` when everything is correct.",
+  "reasoning": "We need to write a Python function that finds length of LIS using dynamic programming. Provide type hints, docstring, test cases. Should be self-contained. Provide code. Use DP O(n^2). Provide tests using assert. Provide explanation. Let's produce final answer.",
+  "content_len": 2978,
+  "reasoning_len": 261,
+  "completion_tokens": 899,
+  "prompt_tokens": 111,
+  "total_tokens": 1010,
+  "finish_reason": "stop",
+  "latency_s": 36.65,
+  "model_returned": "openai/gpt-oss-20b:free"
+}

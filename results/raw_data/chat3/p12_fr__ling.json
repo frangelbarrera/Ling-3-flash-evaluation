@@ -1,0 +1,52 @@
+{
+  "phase": "p12_fr",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Explain ethical hacking vs malicious hacking. Give 3 examples of each. Respond entirely in French (Français).",
+  "timestamp": "2026-07-27T19:56:08.922904+00:00",
+  "result": {
+    "ok": true,
+    "content": "Le piratage éthique et le piratage malveillant sont deux approches fondamentalement différentes de la cybersécurité, qui se distinguent principalement par leurs intentions, leur légalité et leurs conséquences.\n\nLe **piratage éthique** (ou hacking éthique) est pratiqué avec l'autorisation explicite du propriétaire d'un système. Son but est d'identifier et de corriger les vulnérabilités avant que des attaquants ne les exploitent. C'est une activité légale, encadrée et qui vise à renforcer la sécurité des infrastructures.\n\nLe **piratage malveillant** (ou cybercriminalité) est effectué sans autorisation et dans un but personnel, souvent illégal. Son objectif est de causer des dommages, de voler des données sensibles, de perturber des services ou d'en tirer un profit financier illicite.\n\nVoici trois exemples de chaque :\n\n**Exemples de piratage éthique :**\n1. **Le test d'intrusion (Pentest) :** Une entreprise engage un expert en cybersécurité pour simuler une attaque réelle sur son réseau informatique. L'objectif est de découvrir les failles de sécurité avant qu'elles ne soient exploitées par de vrais criminels, afin de pouvoir les corriger.\n2. **Le programme de primes aux vulnérabilités (Bug Bounty) :** Un chercheur en sécurité découvre une faille sur le site web d'une grande entreprise technologique. Au lieu de l'exploiter, il la signigne officiellement à l'entreprise via une plateforme dédiée et reçoit une récompense financière légale en échange de cette divulgation responsable.\n3. **L'audit de sécurité d'une application bancaire :** Un professionnel teste les défenses d'une application financière pour s'assurer que les données des clients sont correctement protégées contre les futures attaques, en vérifiant par exemple la robustesse du cryptage et la résistance aux injections de code.\n\n**Exemples de piratage malveillant :**\n1. **L'attaque par rançongiciel (Ransomware) :** Un pirate infecte le système informatique d'un hôpital avec un logiciel malveillant qui chiffre toutes les données médicales. Il exige ensuite une rançon en cryptomonnaie pour redonner accès aux informations, mettant ainsi en danger la vie des patients.\n2. **L'hameçonnage (Phishing) :** L'envoi massif d'e-mails frauduleux imitant une banque connue pour tromper les victimes. Le but est de les inciter à cliquer sur un lien faux et à saisir leurs identifiants et mots de passe afin de vider leurs comptes bancaires.\n3. **L'attaque par déni de service distribué (DDoS) :** Un pirate utilise un réseau d'ordinateurs piratés (botnet) pour submerger les serveurs d'un site web concurrent. Le site devient indisponible pour les utilisateurs légitimes, ce qui cause des pertes financières importantes à l'entreprise visée.",
+    "reasoning": "1.  **Analyze the Request:**\n    *   Topic: Ethical hacking vs. malicious hacking.\n    *   Requirement 1: Explain the difference.\n    *   Requirement 2: Give 3 examples of each.\n    *   Requirement 3: Respond *entirely* in French (Français).\n\n2.  **Deconstruct the Topic:**\n    *   *Ethical Hacking (Hacking éthique)*: Authorized, legal, aims to improve security, find vulnerabilities before bad actors do, follows a code of conduct.\n    *   *Malicious Hacking (Hacking malveillant)*: Unauthorized, illegal, aims to exploit vulnerabilities for personal gain, theft, damage, or disruption.\n\n3.  **Draft Examples (Mental or Scratchpad):**\n    *   *Ethical Hacking Examples*:\n        1. Penetration testing (Test d'intrusion) on a company's network with permission.\n        2. Bug bounty programs (Programmes de primes aux bugs) where hackers report flaws to tech companies.\n        3. Security auditing/assessment (Audit de sécurité) for a bank's application.\n    *   *Malicious Hacking Examples*:\n        1. Ransomware attack (Attaque par ransomware) encrypting a hospital's data for money.\n        2. Phishing (Hameçonnage) to steal banking credentials.\n        3. DDoS attack (Attaque par déni de service) to take down a competitor's website.\n\n4.  **Translate and Refine into French:**\n    *   *Introduction*: Le piratage éthique et le piratage malveillant sont deux approches opposées de la cybersécurité... (Ethical and malicious hacking are two opposing approaches to cybersecurity...)\n    *   *Ethical Hacking section*:\n        *   Definition: Le piratage éthique (ou test d'intrusion) est pratiqué avec l'autorisation explicite du propriétaire du système. Son but est d'identifier et de corriger les vulnérabilités avant que des attaquants ne les exploitent. Il respecte des règles et des lois strictes.\n        *   Examples:\n            1. Test d'intrusion autorisé : Un expert en sécurité est engagé pour attaquer le réseau d'une entreprise afin de trouver des failles avant une mise à jour majeure.\n            2. Programme de primes aux bugs (Bug Bounty) : Un hacker découvre une faille sur le site d'une entreprise technologique et la signale officiellement en échange d'une récompense financière légale.\n            3. Audit de sécurité d'une application bancaire : Un professionnel teste les défenses d'une application financière pour s'assurer que les données des clients sont protégées.\n    *   *Malicious Hacking section*:\n        *   Definition: Le piratage malveillant (ou cybercriminalité) est effectué sans autorisation et dans le but de causer des dommages, de voler des données ou de tirer un profit illégal. Il viole les lois sur la cybercriminalité.\n        *   Examples:\n            1. Attaque par ransomware : Un hacker chiffre les données d'un hôpital et exige une rançon en cryptomonnaie pour les libérer, mettant des vies en danger.\n            2. Hameçonnage (Phishing) : Envoi d'e-mails frauduleux imitant une banque pour tromper les victimes et leur soutirer leurs identifiants et mots de passe.\n            3. Attaque par déni de service distribué (DDoS) : Submerger le serveur d'un concurrent pour faire tomber son site web et lui causer des pertes financières.\n\n5.  **Review against Constraints:**\n    *   Explain ethical vs malicious? Yes.\n    *   3 examples of each? Yes (3 ethical, 3 malicious).\n    *   Respond *entirely* in French? Yes. Need to double-check for any English words that shouldn't be there (e.g., \"Bug Bounty\" is commonly used in French, but \"Programme de primes aux bugs\" is better to be safe, though \"Bug Bounty\" is widely accepted. I will use the French terms primarily to be strictly compliant with \"entirely in French\"). \"Ransomware\" -> \"rançongiciel\" (or \"ransomware\" as it's common, but \"rançongiciel\" is pure French). \"Phishing\" -> \"Hameçonnage\". \"DDoS\" -> \"Déni de service distribué\". \"Bug Bounty\" -> \"Programme de primes aux vulnérabilités\".\n\n6.  **Final Polish (French):**\n    *   *Le piratage éthique* (ou hacking éthique) désigne l'accès autorisé à des systèmes informatiques dans le but de les tester et d'améliorer leur sécurité. C'est une pratique légale et encadrée qui vise à identifier les failles avant qu'elles ne soient exploitées par des criminels.\n    *   *Le piratage malveillant* (ou cybercriminalité) désigne l'accès non autorisé à des systèmes dans le but de causer des dommages, de voler des données ou d'en tirer un profit illégal. C'est une activité illégale qui viole la vie privée et les lois sur la sécurité informatique.\n\n    *Examples - Ethical:*\n    1. **Test d'intrusion (Pentest)** : Un professionnel de la cybersécurité est engagé par une entreprise pour attaquer son réseau informatique afin de découvrir ses vulnérabilités et proposer des correctifs.\n    2. **Programme de primes aux vulnérabilités (Bug Bounty)** : Un chercheur en sécurité découvre une faille sur le site d'une grande entreprise technologique et la signale officiellement en échange d'une récompense financière légale.\n    3. **Audit de sécurité d'une application bancaire** : Un expert teste les défenses d'une application financière pour s'assurer que les données sensibles des clients sont correctement protégées contre les futures attaques.\n\n    *Examples - Malicious:*\n    1. **Attaque par rançongiciel (Ransomware)** : Un pirate chiffre les données d'un hôpital et exige une rançon en cryptomonnaie pour les libérer, mettant en danger la vie des patients.\n    2. **Hameçonnage (Phishing)** : L'envoi d'e-mails frauduleux imitant une banque pour tromper les victimes et leur soutirer leurs identifiants et mots de passe afin de vider leurs comptes.\n    3. **Attaque par déni de service (DDoS)** : Submerger volontairement les serveurs d'un site web concurrent pour le rendre indisponible et lui causer des pertes financières importantes.\n\n7.  **Final check:** All French? Yes. Explains the difference? Yes. 3 examples each? Yes. No English words left (translated \"Bug Bounty\", \"Ransomware\", \"Phishing\", \"DDoS\" to French equivalents). The tone is informative and objective. Ready to output.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 42,
+      "completion_tokens": 2429,
+      "total_tokens": 2471,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1557,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 7.48,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182161-9v46prgOTMrII54gEQGs"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Multilingual: ethical hacking in French",
+      "category": "Multilingual",
+      "expected": {
+        "language_correct": "French",
+        "examples_each": 3,
+        "no_english_mixing": true
+      },
+      "notes": "French phase flagged in original report as 0-char failure; using max_tokens=2500."
+    }
+  }
+}

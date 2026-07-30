@@ -1,0 +1,50 @@
+{
+  "phase": "p05b_rule_of_72",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "If a company's revenue grows 10% annually, how many years until it doubles? Explain the Rule of 72.",
+  "timestamp": "2026-07-27T18:17:24.449917+00:00",
+  "result": {
+    "ok": true,
+    "content": "# The Rule of 72\n\n## Quick Answer\nAt **10% annual growth**, it takes approximately **7.2 years** for revenue to double.\n\n---\n\n## What Is the Rule of 72?\n\nThe Rule of 72 is a simple shortcut to estimate how long it takes for something growing at a fixed annual rate to **double** in value.\n\n### The Formula\n\n$$\\text{Years to Double} = \\frac{72}{\\text{Annual Growth Rate (\\%)}}$$\n\n### Applying It\n\n$$\\frac{72}{10} = 7.2 \\text{ years}$$\n\n---\n\n## Why Does It Work?\n\nThe exact formula for doubling time comes from compound interest:\n\n$$2 = (1 + r)^t$$\n\nSolving for *t*:\n\n$$t = \\frac{\\ln(2)}{\\ln(1 + r)} = \\frac{0.6931}{\\ln(1.10)} \\approx 7.27 \\text{ years}$$\n\nThe number **72** is chosen because:\n- It's close to **100 × ln(2) ≈ 69.3**, which is the mathematically precise base\n- **72** is divisible by many common rates (2, 3, 4, 6, 8, 9, 12…), making mental math easy\n- It provides a good balance of accuracy for typical interest/growth rates (roughly 4%–20%)\n\n---\n\n## Quick Reference Table\n\n| Growth Rate | Rule of 72 | Exact Answer |\n|:-----------:|:----------:|:------------:|\n| 4%          | 18 years   | 17.7 years   |\n| 6%          | 12 years   | 11.9 years   |\n| **10%**     | **7.2 years** | **7.27 years** |\n| 12%         | 6 years    | 6.12 years   |\n\n---\n\n## Key Takeaway\n\nThe Rule of 72 is a powerful mental math tool for **investing, business planning, and finance**. It highlights a crucial insight: **small differences in growth rates lead to huge differences in doubling time**. For example, a 10% growth rate doubles in ~7 years, while a 7% rate takes ~10 years — a 3-year difference from just a 3% gap.",
+    "reasoning": "The user is asking two things:\n1. How many years until a company's revenue doubles if it grows 10% annually?\n2. An explanation of the Rule of 72.\n\nThe Rule of 72 is a simple approximation: divide 72 by the annual growth rate (as a percentage) to estimate the number of years to double.\n\n72 / 10 = 7.2 years.\n\nLet me also verify with the exact formula:\n2 = (1.10)^t\nln(2) = t × ln(1.10)\nt = ln(2) / ln(1.10) = 0.6931 / 0.09531 ≈ 7.27 years\n\nSo the Rule of 72 gives 7.2 years, which is very close to the exact answer of ~7.27 years.\n\nI should explain the Rule of 72 clearly, why it works, and show the calculation.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 47,
+      "completion_tokens": 773,
+      "total_tokens": 820,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 158,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 3.68,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785176240-JoxaigXW5XGhBGV1MqDa"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Rule of 72 — doubling time at 10% growth",
+      "category": "Logic/Finance",
+      "expected": {
+        "approx_years": 7.2
+      },
+      "notes": "72/10 = 7.2 years"
+    }
+  }
+}

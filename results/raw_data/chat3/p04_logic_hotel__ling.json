@@ -1,0 +1,50 @@
+{
+  "phase": "p04_logic_hotel",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Three guests check into a hotel room that costs $30. They each pay $10. Later the clerk realizes the room was only $25, gives the bellhop $5 to return. The bellhop keeps $2 and gives $1 back to each guest. So each guest paid $9 (total $27) plus the bellhop's $2 = $29. Where is the missing dollar? Explain the error.",
+  "timestamp": "2026-07-27T18:14:34.976157+00:00",
+  "result": {
+    "ok": true,
+    "content": "## The Missing Dollar — Explained\n\n### The Trick\n\nThe riddle is designed to trick you into **adding** the bellhop's $2 to the $27, but that $2 is **already included** in the $27. This is a double-counting error.\n\n---\n\n### Correct Accounting\n\n**Follow the money step by step:**\n\n| Where the money is | Amount |\n|---|---|\n| Hotel (clerk) | $25 |\n| Bellhop (kept) | $2 |\n| Guests (refunded) | $3 |\n| **Total** | **$30** ✓ |\n\n---\n\n### Where the Riddle Goes Wrong\n\nThe riddle says:\n\n> \"Each guest paid $9 → $27 total, **plus** the bellhop's $2 = $29.\"\n\nBut the **$27 already includes** the bellhop's $2:\n\n$$27 = \\underbrace{25}_{\\text{hotel}} + \\underbrace{2}_{\\text{bellhop}}$$\n\nSo adding the bellhop's $2 **again** is double-counting it.\n\n---\n\n### The Correct Equation\n\nThe $27 the guests spent should be **broken down**, not added to:\n\n$$\\underbrace{27}_{\\text{guests' total payment}} = \\underbrace{25}_{\\text{hotel}} + \\underbrace{2}_{\\text{bellhop}}$$\n\nAnd the full $30 is recovered by adding what the guests got back:\n\n$$27 + 3 = 30$$\n\n---\n\n### Summary\n\nThere is no missing dollar. The riddle creates a false equation by **adding** the bellhop's $2 to the $27 when it should be **subtracted** from it (or simply recognized as already included). The $27 and the $2 are not two separate piles — the $2 is a *part of* the $27.",
+    "reasoning": "This is a classic math riddle that's designed to mislead through a subtle accounting error. Let me trace through the money carefully.\n\n**The actual flow of money:**\n\n1. Guests initially pay: $30 total ($10 each)\n2. Clerk realizes the room is $25, so he gives $5 to the bellhop to return.\n3. Bellhop keeps $2 and returns $1 to each guest ($3 total returned).\n\n**Where is the money now?**\n- Hotel (clerk) has: $25\n- Bellhop has: $2\n- Guests got back: $3 ($1 each)\n- Total: $25 + $2 + $3 = $30 ✓\n\n**The trick in the riddle:**\n\nThe riddle says \"each guest paid $9 (total $27) plus the bellhop's $2 = $29.\" This is the misleading step.\n\nThe $27 that the guests paid already includes the bellhop's $2. Let's break down the $27:\n- $25 went to the hotel (the actual room cost)\n- $2 went to the bellhop (kept)\n- $27 = $25 + $2\n\nSo adding the bellhop's $2 to the $27 is double-counting the bellhop's $2.\n\nThe correct way to account:\n- Guests paid $27 total\n- Of that $27: $25 is with the hotel, $2 is with the bellhop\n- Guests got $3 back\n- $27 + $3 = $30 ✓\n\nOr alternatively:\n- Hotel has $25\n- Bellhop has $2\n- Guests have $3 (refunded)\n- $25 + $2 + $3 = $30 ✓\n\nThe error is that the riddle asks you to add the bellhop's $2 to the $27, but the $27 already includes that $2. You should subtract it, not add it. The $27 minus the $2 = $25 (the hotel's revenue), and then adding back the $3 returned to guests gives $30.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 914,
+      "total_tokens": 1024,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 364,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 3.14,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785176072-NtdFIdPA9uz0NAiR09AQ"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Hotel $30 / missing dollar riddle",
+      "category": "Logic",
+      "expected": {
+        "identifies_fallacy": true
+      },
+      "notes": "Fallacy: adding 27+2 is wrong; the $2 is already part of the $27 the guests paid, not in addition."
+    }
+  }
+}

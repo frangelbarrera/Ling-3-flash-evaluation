@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_mt500",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "",
+  "reasoning": "1.  **Analyze the Request:**\n    *   Topic: SQL injection.\n    *   Format: Haiku (exactly 3 lines, 5-7-5 syllable structure).\n    *   Constraint: No explanation, just the haiku.\n\n2.  **Deconstruct SQL Injection:**\n    *   Malicious input in a query.\n    *   Bypassing security.\n    *   Stealing data.\n    *   Keywords: SQL, query, drop, steal, hack, code, input.\n\n3.  **Drafting - Line 1 (5 syllables):**\n    *   *Ma-lic-ious code* (5) -> Ma-lic-i-tious (4) code (1) = 5. Wait, malicious is 4. Mal-i-cious (3) code (1) = 4. Mal-i-cious (3) in-put (2) = 5.\n    *   *Ma-lic-i-tous input* -> Ma (1) li (2) cious (3) in (4) put (5). Wait, malicious is 4 syllables: mal-i-cious. Input is 2 syllables: in-put. 4 + 2 = 6.\n    *   *Bad query input* -> Bad (1) que (2) ry (3) in (4) put (5). (5 syllables) - Good.\n    *   *Steal the data* -> Steal (1) the (2) da (3) ta (4). (4 syllables).\n    *   *Drop the table* -> Drop (1) the (2) ta (3) ble (4). (4 syllables).\n    *   *Hack the query* -> Hack (1) the (2) que (3) ry (4). (4 syllables).\n    *   *Malicious code* -> Mal (1) i (2) cious (3) code (4). (4 syllables).\n    *   *Evil input* -> E (1) vil (2) in (3) put (4). (4 syllables).\n    *   *Crafty input* -> Craft (1) y (2) in (3) put (4). (4 syllables",
+  "content_len": 0,
+  "reasoning_len": 1249,
+  "completion_tokens": 500,
+  "prompt_tokens": 58,
+  "total_tokens": 558,
+  "finish_reason": "length",
+  "latency_s": 2.08,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

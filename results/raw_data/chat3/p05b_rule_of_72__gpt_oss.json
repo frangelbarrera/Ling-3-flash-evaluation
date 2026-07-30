@@ -1,0 +1,28 @@
+{
+  "phase": "p05b_rule_of_72",
+  "model_label": "gpt_oss",
+  "model_id": "openai/gpt-oss-20b:free",
+  "prompt": "If a company's revenue grows 10% annually, how many years until it doubles? Explain the Rule of 72.",
+  "timestamp": "2026-07-27T18:19:11.982715+00:00",
+  "result": {
+    "ok": false,
+    "content": "",
+    "reasoning": "",
+    "finish_reason": null,
+    "usage": {},
+    "elapsed_s": 0,
+    "error": "429 rate_limited key#2",
+    "model_returned": null,
+    "raw_id": null
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Rule of 72 — doubling time at 10% growth",
+      "category": "Logic/Finance",
+      "expected": {
+        "approx_years": 7.2
+      },
+      "notes": "72/10 = 7.2 years"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_mt1000",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 1000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "",
+  "reasoning": "1.  **Analyze the Request:**\n    *   Topic: SQL injection.\n    *   Format: Haiku (exactly 3 lines).\n    *   Syllable structure: 5-7-5.\n    *   Constraint: No explanation, just the haiku.\n\n2.  **Deconstruct the Topic (SQL Injection):**\n    *   Keywords: SQL, injection, query, data, breach, drop, table, quote, string, malicious, code, steal, database.\n\n3.  **Drafting - Line 1 (5 syllables):**\n    *   *Malicious code in* (5: Ma-li-cious-code-in) - Wait, malicious is 4 (ma-li-cious), code is 1, in is 1 = 6.\n    *   *Steal the data* (4: Steal-the-da-ta) -> Need 5.\n    *   *Drop the whole table* (5: Drop-the-whole-ta-ble) - Good.\n    *   *Malicious strings* (5: Ma-li-cious-strings) - Good.\n    *   *Quote breaks the query* (5: Quote-breaks-the-que-ry) - Good.\n\n4.  **Drafting - Line 2 (7 syllables):**\n    *   *Injecting bad code through input* (7: In-ject-ing-bad-code-through-input) - In(1) ject(2) ing(3) bad(4) code(5) through(6) in(7) put(8). Too long.\n    *   *Injecting bad code through fields* (7: In-ject-ing-bad-code-through-fields) - In(1) ject(2) ing(3) bad(4) code(5) through(6) fields(7). Good.\n    *   *Bypassing the login form* (7: By-pass-ing-the-log-in-form) - By(1) pass(2) ing(3) the(4) log(5) in(6) form(7). Good.\n    *   *Stealing data from the server* (7: Steal-ing-da-ta-from-the-ser-ver) - Steal(1) ing(2) da(3) ta(4) from(5) the(6) ser(7) ver(8). Too long.\n    *   *Stealing data from servers* (7: Steal-ing-da-ta-from-ser-vers) - Steal(1) ing(2) da(3) ta(4) from(5) ser(6) vers(7). Good.\n\n5.  **Drafting - Line 3 (5 syllables):**\n    *   *Database falls down* (5: Da-ta-base-falls-down) - Good.\n    *   *Tables drop to dust* (5: Ta-bles-drop-to-dust) - Good.\n    *   *Data is lost* (4) -> *All data is lost* (5: All-da-ta-is-lost) - Good.\n    *   *Breach the whole system* (5: Breach-the-whole-sys-tem) - Good.\n\n6.  **Combining and Checking Syllables:**\n\n    *Attempt 1:*\n    Drop the whole table (5)\n    Injecting bad code through fields (7)\n    All data is lost (5)\n    Wait, \"fields\" is 1. \"through\" is 1. \"code\" is 1. \"bad\" is 1. \"Injecting\" is 3. Total = 3+1+1+1+1+1 = 8.\n    Let's recount: In-jec-ting (3) bad (1) code (1) through (1) fields (1) = 7. Yes, 7.\n\n    *Attempt 2:*\n    Quote breaks the query (5)\n    Bypassing the login form (7)\n    Tables drop to dust (5)\n    Line 1: Quote(1) breaks(1) the(1) que(1) ry(2) = 5? Wait, \"query\" is 2 syllables (que-ry). Quote(1) breaks(1) the(1) que(1) ry(1) = 5. Correct.\n    Line 2: By(1) pass(2) ing(3) the(4) log(5) in(6) form(7). Correct.\n",
+  "content_len": 0,
+  "reasoning_len": 2524,
+  "completion_tokens": 1000,
+  "prompt_tokens": 58,
+  "total_tokens": 1058,
+  "finish_reason": "length",
+  "latency_s": 3.17,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

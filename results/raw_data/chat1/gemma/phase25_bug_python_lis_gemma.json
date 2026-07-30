@@ -1,0 +1,19 @@
+{
+  "phase": "phase25_bug_python_lis_gemma",
+  "model": "google/gemma-4-31b-it:free",
+  "prompt": "Write a Python function that finds the length of the longest increasing subsequence (LIS) in a list of integers. Use dynamic programming. Include type hints, a docstring, and at least 2 test cases.",
+  "max_tokens": 3000,
+  "temperature": 0.3,
+  "ok": false,
+  "error": "429 rate limit on key #0",
+  "content": "",
+  "reasoning": "",
+  "content_len": 0,
+  "reasoning_len": 0,
+  "completion_tokens": null,
+  "prompt_tokens": null,
+  "total_tokens": null,
+  "finish_reason": "",
+  "latency_s": null,
+  "model_returned": null
+}

@@ -1,0 +1,20 @@
+{
+  "phase": "phase02_math_basic",
+  "label": "phase02_math_basic",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Calculate: 17 * 23 + 45 - 12. Show your work.",
+  "max_tokens": 1000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "17 * 23 + 45 - 12\n\n**Step 1:** Perform multiplication first (order of operations):\n17 × 23 = 391\n\n**Step 2:** Perform addition:\n391 + 45 = 436\n\n**Step 3:** Perform subtraction:\n436 - 12 = **424**",
+  "reasoning": "We need to calculate 17 * 23 + 45 - 12. Following order of operations (PEMDAS/BODMAS), multiplication comes first, then addition and subtraction from left to right.\n\nStep 1: 17 * 23\n17 * 23 = 17 * 20 + 17 * 3 = 340 + 51 = 391\n\nStep 2: 391 + 45 = 436\n\nStep 3: 436 - 12 = 424\n\nThe answer is 424.",
+  "content_len": 195,
+  "reasoning_len": 293,
+  "completion_tokens": 232,
+  "prompt_tokens": 42,
+  "total_tokens": 274,
+  "finish_reason": "stop",
+  "latency_s": 1.22,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

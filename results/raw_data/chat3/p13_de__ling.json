@@ -1,0 +1,52 @@
+{
+  "phase": "p13_de",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Explain ethical hacking vs malicious hacking. Give 3 examples of each. Respond entirely in German (Deutsch).",
+  "timestamp": "2026-07-27T19:56:14.897723+00:00",
+  "result": {
+    "ok": true,
+    "content": "**Ethisches Hacken (White-Hat-Hacking)**\n\nEthisches Hacken ist die legale und autorisierte Praxis, in Computersysteme, Netzwerke oder Anwendungen einzudringen, um Sicherheitslücken zu finden und zu beheben, bevor sie von Kriminellen ausgenutzt werden können. Das Hauptziel ist der Schutz von Daten, die Verbesserung der IT-Sicherheit und die Einhaltung von Gesetzen. Ethische Hacker handeln mit ausdrücklicher Genehmigung des Systembesitzers und halten sich an strenge Regeln und Vertraulichkeitsvereinbarungen.\n\n**Drei Beispiele für ethisches Hacken:**\n\n1. **Penetrationstests:** Ein Unternehmen beauftragt einen ethischen Hacker, simulierte Cyberangriffe auf das eigene Firmennetzwerk durchzuführen. Ziel ist es, Schwachstellen aufzudecken, bevor echte Angreifer dies tun, und anschließend Empfehlungen zur Behebung zu geben.\n2. **Bug-Bounty-Programme:** Hacker suchen nach Fehlern in der Software großer Unternehmen (wie Google oder Microsoft) und melden diese verantwortungsvoll über offizielle Plattformen. Im Gegenzug erhalten sie eine finanzielle Belohnung (Bug Bounty), anstatt die Lücke auszunutzen.\n3. **Sicherheitsaudits und Schwachstellen-Scans:** Sicherheitsexperten führen systematische Überprüfungen der IT-Infrastruktur eines Unternehmens durch, um veraltete Software, falsche Konfigurationen oder ungeschützte Zugänge zu identifizieren und das System abzusichern.\n\n**Bösartiges Hacken (Black-Hat-Hacking)**\n\nBösartiges Hacken ist die illegale und unbefugte Eindringung in Computersysteme oder Netzwerke mit der Absicht, Schaden anzurichten, Daten zu stehlen oder persönliche bzw. finanzielle Vorteile zu erlangen. Es verstößt gegen Gesetze wie das Computergesetz (in Deutschland das StGB, §§ 202a ff.) und ethische Grundsätze. Bösartige Hacker handeln ohne Erlaubnis und ignorieren die Rechte und den Datenschutz der Opfer.\n\n**Drei Beispiele für bösartiges Hacken:**\n\n1. **Ransomware-Angriffe:** Hacker dringen in das System eines Krankenhauses oder eines Unternehmens ein, verschlüsseln alle wichtigen Daten und fordern dann Lösegeld (ein Ransom), um den Zugriff wiederherzustellen. Dies verursacht massive Schörungen und finanzielle Verluste.\n2. **Identitätsdiebstahl und Datendiebstahl:** Unbefugte Hacker stehlen persönliche Informationen wie Kreditkartendaten, Passwörter oder Sozialversicherungsnummern aus gehackten Datenbanken, um sich als die Opfer auszugeben, Betrug zu begehen oder die Daten im Darknet zu verkaufen.\n3. **DDoS-Angriffe (Distributed Denial of Service):** Hacker übernehmen Tausende von Computern (Botnetze), um einen Server mit einer extremen Flut von Anfragen zu überlasten. Dadurch wird eine Website oder ein Online-Dienst für legitime Nutzer nicht mehr erreichbar, was oft als Erpressung oder Sabotage eingesetzt wird.",
+    "reasoning": "1.  **Analyze the Request:**\n    *   Topic: Ethical hacking vs. malicious hacking.\n    *   Requirement 1: Explain the difference.\n    *   Requirement 2: Give 3 examples of each.\n    *   Requirement 3: Respond *entirely* in German (Deutsch).\n\n2.  **Deconstruct the Topic:**\n    *   *Ethical Hacking (White Hat):* Authorized, legal, aims to improve security, finds vulnerabilities before bad actors do, follows a code of conduct.\n    *   *Malicious Hacking (Black Hat):* Unauthorized, illegal, aims to exploit vulnerabilities for personal gain, theft, damage, or sabotage.\n\n3.  **Draft the Explanations (in German):**\n    *   *Ethical Hacking:* Ethisches Hacken (auch White-Hat-Hacking genannt) ist die legale und autorisierte Praxis, in Computersysteme, Netzwerke oder Anwendungen einzudringen, um Sicherheitslücken zu finden und zu beheben, bevor sie von böswilligen Akteuren ausgenutzt werden können. Das Ziel ist die Verbesserung der Sicherheit und der Schutz von Daten.\n    *   *Malicious Hacking:* Bösartiges Hacken (auch Black-Hat-Hacking genannt) ist die illegale und unbefugte Eindringung in Computersysteme oder Netzwerke mit der Absicht, Schaden anzurichten, Daten zu stehlen oder persönliche/finanzielle Vorteile zu erlangen. Es verstößt gegen Gesetze und ethische Grundsätze.\n\n4.  **Draft the Examples (3 for each, in German):**\n    *   *Ethical Hacking Examples:*\n        1. Penetration Testing (Penetrationstests) - Unternehmen beauftragen Hacker, ihr Netzwerk zu attackieren, um Schwachstellen zu finden.\n        2. Bug Bounty Programs (Bug-Bounty-Programme) - Hacker finden Fehler in Software (z.B. bei Google oder Microsoft) und melden diese gegen eine Belohnung.\n        3. Security Audits/Assessments (Sicherheitsaudits) - Überprüfung der Sicherheitsrichtlinien und Infrastruktur eines Unternehmens durch autorisierte Experten.\n    *   *Malicious Hacking Examples:*\n        1. Ransomware-Angriffe (Ransomware attacks) - Verschlüsselung von Daten und Erpressung von Lösegeld.\n        2. Identity Theft/Datenklau (Identitätsdiebstahl) - Stehlen von persönlichen Daten (Kreditkartendaten, Passwörter) aus Datenbanken.\n        3. DDoS-Angriffe (DDoS attacks) - Überlastung von Servern, um Websites oder Dienste lahmzulegen (z.B. aus Erpressung oder Sabotage).\n\n5.  **Refine and Format (German):**\n    *   Ensure the tone is informative and objective.\n    *   Check for 100% German language (no English words unless absolutely necessary and standard in IT, but better to use German equivalents where possible, or clearly Germanized terms like \"Penetrationstest\").\n    *   Structure clearly with headings or bullet points.\n\n6.  **Review against Constraints:**\n    *   Explain ethical vs malicious? Yes.\n    *   3 examples of each? Yes.\n    *   Entirely in German? Yes.\n\n7.  **Final Polish (Self-Correction during drafting):**\n    *   *Drafting:*\n        **Ethisches Hacken (White-Hat-Hacking)**\n        Ethisches Hacken ist die legale und autorisierte Praxis, in Computersysteme einzudringen, um Sicherheitslücken zu identifizieren und zu schließen, bevor sie von Kriminellen ausgenutzt werden können. Das Hauptziel ist der Schutz von Daten und die Verbesserung der IT-Sicherheit.\n\n        Beispiele für ethisches Hacken:\n        1. **Penetrationstests:** Unternehmen beauftragen ethische Hacker, simulierte Cyberangriffe auf ihr eigenes Netzwerk durchzuführen, um Schwachstellen aufzudecken, bevor echte Angreifer dies tun.\n        2. **Bug-Bounty-Programme:** Hacker suchen nach Fehlern in Software von großen Firmen (wie Google oder Apple) und melden diese verantwortungsvoll gegen eine finanzielle Belohnung.\n        3. **Sicherheitsaudits:** Experten prüfen die IT-Infrastruktur und die Sicherheitsrichtlinien eines Unternehmens, um sicherzustellen, dass alle Systeme den aktuellen Sicherheitsstandards entsprechen.\n\n        **Bösartiges Hacken (Black-Hat-Hacking)**\n        Bösartiges Hacken ist die illegale und unbefugte Eindringung in Computersysteme oder Netzwerke mit der Absicht, Schaden anzurichten, Daten zu stehlen oder finanzielle bzw. persönliche Vorteile zu erlangen. Es verstößt gegen Gesetze und ethische Normen.\n\n        Beispiele für bösartiges Hacken:\n        1. **Ransomware-Angriffe:** Hacker verschlüsseln die Daten eines Opfers (z.B. eines Krankenhauses) und fordern Lösegeld, um die Daten wieder freizugeben.\n        2. **Identitätsdiebstahl:** Unbefugte Hacker stehlen persönliche Informationen wie Kreditkartendaten oder Passwörter aus Datenbanken, um sich als das Opfer auszugeben oder Geld zu stehlen.\n        3. **DDoS-Angriffe (Distributed Denial of Service):** Hacker überfluten einen Server mit so vielen Anfragen, dass er zusammenbricht und eine Website oder ein Online-Dienst für legitime Nutzer nicht mehr erreichbar ist.\n\n8.  **Final Verification:** All German? Yes. 3 examples each? Yes. Clear explanation? Yes. No English words used unnecessarily (Penetrationstests, Bug-Bounty, DDoS are standard German IT terms, but I can add the German context to be safe. DDoS is an acronym, but widely used in German. I will keep it as it's the standard term, but the explanation is in German). Let's make sure \"Penetrationstest\" and \"Bug-Bounty\" are framed clearly in German. Looks solid.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 41,
+      "completion_tokens": 2222,
+      "total_tokens": 2263,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1331,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 5.97,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182168-nSkyxlYTReVOofn5Lev9"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Multilingual: ethical hacking in German",
+      "category": "Multilingual",
+      "expected": {
+        "language_correct": "German",
+        "examples_each": 3,
+        "no_english_mixing": true
+      },
+      "notes": "French phase flagged in original report as 0-char failure; using max_tokens=2500."
+    }
+  }
+}

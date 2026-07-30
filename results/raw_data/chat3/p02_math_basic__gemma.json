@@ -1,0 +1,50 @@
+{
+  "phase": "p02_math_basic",
+  "model_label": "gemma",
+  "model_id": "google/gemma-4-26b-a4b-it:free",
+  "prompt": "Calculate: 17 * 23 + 45 - 12. Show your work.",
+  "timestamp": "2026-07-27T18:04:56.007831+00:00",
+  "result": {
+    "ok": true,
+    "content": "To solve the expression **17 * 23 + 45 - 12**, follow the order of operations (PEMDAS/BODMAS), which dictates that multiplication is performed before addition and subtraction.\n\n**Step 1: Multiplication**\nFirst, multiply 17 by 23.\n*   $17 \\times 20 = 340$\n*   $17 \\times 3 = 51$\n*   $340 + 51 = 391$\n\n**Step 2: Addition**\nNext, add 45 to the result from Step 1.\n*   $391 + 45 = 436$\n\n**Step 3: Subtraction**\nFinally, subtract 12 from the result from Step 2.\n*   $436 - 12 = 424$\n\n**Final Answer:**\n**424**",
+    "reasoning": "",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 35,
+      "completion_tokens": 206,
+      "total_tokens": 241,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 3.504e-05,
+        "upstream_inference_prompt_cost": 1.05e-06,
+        "upstream_inference_completions_cost": 3.399e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 32.97,
+    "error": null,
+    "model_returned": "google/gemma-4-26b-a4b-it:free",
+    "raw_id": "gen-1785175463-9Q0KVsFk0Ry7Yzt5cXeF"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Basic arithmetic with work shown",
+      "category": "Math",
+      "expected": {
+        "correct_answer": 424
+      },
+      "notes": "17*23=391; 391+45=436; 436-12=424"
+    }
+  }
+}

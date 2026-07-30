@@ -1,0 +1,46 @@
+{
+  "phase": "s01_pong_mt500_rep0",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Reply with exactly the word: PONG",
+  "timestamp": "2026-07-27T19:51:41.881956+00:00",
+  "result": {
+    "ok": true,
+    "content": "PONG",
+    "reasoning": "1.  **Analyze the Request:** The user wants me to reply with exactly the word \"PONG\".\n2.  **Analyze the Constraints:** The reply must be *exactly* the word \"PONG\". No extra text, no punctuation (unless specified, but \"exactly the word\" usually implies just the word itself), no formatting.\n3.  **Formulate the Output:** PONG\n4.  **Verify Constraints:** Does \"PONG\" contain exactly the word PONG? Yes. Is there any other text? No.\n\nWait, should I include a period? \"exactly the word: PONG\". The word is PONG. I will output just PONG.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 28,
+      "completion_tokens": 150,
+      "total_tokens": 178,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 135,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 1.2,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785181900-rYZpGeUns8myFjgd0IZY",
+    "extra_body_used": null
+  },
+  "extra": {
+    "test": "pong_sweep",
+    "max_tokens": 500,
+    "rep": 0
+  }
+}

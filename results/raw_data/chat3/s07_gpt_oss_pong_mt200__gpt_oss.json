@@ -1,0 +1,45 @@
+{
+  "phase": "s07_gpt_oss_pong_mt200",
+  "model_label": "gpt_oss",
+  "model_id": "openai/gpt-oss-20b:free",
+  "prompt": "Reply with exactly the word: PONG",
+  "timestamp": "2026-07-27T19:54:19.234516+00:00",
+  "result": {
+    "ok": true,
+    "content": "PONG",
+    "reasoning": "The user says: \"Reply with exactly the word: PONG\". So we must output exactly \"PONG\". No extra spaces, no newline? Usually we output with newline. But \"exactly the word\" means just that word. So output: PONG.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 75,
+      "completion_tokens": 66,
+      "total_tokens": 141,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 5.7075e-06,
+        "upstream_inference_prompt_cost": 1.0875e-06,
+        "upstream_inference_completions_cost": 4.62e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 54,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 4.52,
+    "error": null,
+    "model_returned": "openai/gpt-oss-20b:free",
+    "raw_id": "gen-1785182054-9bkscQH8kzICFOoq4Leh",
+    "extra_body_used": null
+  },
+  "extra": {
+    "test": "gpt_oss_pong_sweep",
+    "max_tokens": 200
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "working": [],
+  "candidates": [
+    [
+      "llama-3.3-70b",
+      "meta-llama/llama-3.3-70b-instruct:free"
+    ],
+    [
+      "qwen-2.5-72b",
+      "qwen/qwen-2.5-72b-instruct:free"
+    ],
+    [
+      "mistral-3.1",
+      "mistralai/mistral-small-3.1-24b-instruct:free"
+    ],
+    [
+      "phi-4",
+      "microsoft/phi-4:free"
+    ],
+    [
+      "deepseek-v3",
+      "deepseek/deepseek-chat-v3-0324:free"
+    ],
+    [
+      "nemotron-nano",
+      "nvidia/nemotron-nano-9b-v2:free"
+    ]
+  ]
+}

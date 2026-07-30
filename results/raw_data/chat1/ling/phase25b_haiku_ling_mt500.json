@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_ling_mt500",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "",
+  "reasoning": "1.  **Analyze the Request:**\n    *   Topic: SQL injection.\n    *   Format: Haiku.\n    *   Syllable structure: 5-7-5.\n    *   Constraint: No explanation, just the haiku.\n\n2.  **Deconstruct the Topic (SQL Injection):**\n    *   Keywords/concepts: SQL, injection, query, database, malicious input, quote, drop table, steal data, code, hack.\n\n3.  **Drafting - Attempt 1:**\n    *   Line 1 (5 syllables): Mal-i-cious code (5) -> Mal-i-cious (4) code (1) = 5. Wait, Mal-i-cious is 4. Ma-licious? Mal-i-cious (4). Malicious code (5). Let's check: Mal (1) i (2) cious (3) code (4). Wait, mal-i-cious = 4 syllables. Mal-i-cious code = 5 syllables.\n    *   Line 2 (7 syllables): Steals the da-ta-base with quotes (7) -> Steals (1) the (2) da (3) ta (4) base (5) with (6) quotes (7).\n    *   Line 3 (5 syllables): Drop the ta-ble (5) -> Drop (1) the (2) ta (3) ble (4). Wait, Drop the table = 4. Drop the ta-ble (4). Drop the whole ta-ble (5).\n\n4.  **Refining Attempt 1:**\n    *   Line 1: Mal-i-cious code (5) - Wait, mal-i-cious is 4. Ma-licious is 3? No, mal-i-cious = 4. Ma-licious = 3? Mal-i-cious = 4. Mal-ic-ious? Mal-i-cious (4). Ma-licious (3). Malicious = 4 syllables. Ma-lis-cious? No, mal-i-cious. Ma (1) li (2) cious (3). Wait, mal-i-cious = 3 syllables! Mal (1) i (2) cious (3). Let's count: Mal-ic-ious",
+  "content_len": 0,
+  "reasoning_len": 1303,
+  "completion_tokens": 500,
+  "prompt_tokens": 58,
+  "total_tokens": 558,
+  "finish_reason": "length",
+  "latency_s": 2.28,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

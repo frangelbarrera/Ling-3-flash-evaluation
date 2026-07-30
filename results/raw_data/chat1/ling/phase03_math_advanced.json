@@ -1,0 +1,20 @@
+{
+  "phase": "phase03_math_advanced",
+  "label": "phase03_math_advanced",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "A train travels 240 km in 4 hours. If it increases its speed by 20 km/h, how long will it take to travel the same 240 km? Show your work.",
+  "max_tokens": 1500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "**Step 1: Find the original speed**\n\n$$\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}} = \\frac{240 \\text{ km}}{4 \\text{ hours}} = 60 \\text{ km/h}$$\n\n**Step 2: Calculate the new speed**\n\n$$\\text{New Speed} = 60 + 20 = 80 \\text{ km/h}$$\n\n**Step 3: Find the new travel time**\n\n$$\\text{Time} = \\frac{\\text{Distance}}{\\text{New Speed}} = \\frac{240 \\text{ km}}{80 \\text{ km/h}} = 3 \\text{ hours}$$\n\n**Answer:** It will take **3 hours** to travel the same 240 km at the increased speed.",
+  "reasoning": "This is a straightforward speed-distance-time problem.\n\n1. First, find the original speed: speed = distance / time = 240 km / 4 hours = 60 km/h.\n2. The new speed is 60 + 20 = 80 km/h.\n3. Time with the new speed = distance / new speed = 240 / 80 = 3 hours.",
+  "content_len": 482,
+  "reasoning_len": 255,
+  "completion_tokens": 274,
+  "prompt_tokens": 64,
+  "total_tokens": 338,
+  "finish_reason": "stop",
+  "latency_s": 1.36,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

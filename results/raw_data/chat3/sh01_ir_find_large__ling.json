@@ -1,0 +1,49 @@
+{
+  "phase": "sh01_ir_find_large",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Give me a one-liner to find all files modified in the last 24 hours under /var/www, sorted by size descending, showing size in human-readable format and absolute path. Then give me a 3-line variant that excludes .log files and excludes the /var/www/cache subdir.",
+  "timestamp": "2026-07-27T20:20:39.416726+00:00",
+  "result": {
+    "ok": true,
+    "content": "**One-liner:**\n\n```bash\nfind /var/www -type f -mtime -1 -exec du -h {} + | sort -hr\n```\n\n**3-line variant (excludes `.log` files and `/var/www/cache`):**\n\n```bash\nfind /var/www -type f -mtime -1 \\\n  ! -name \"*.log\" \\\n  ! -path \"/var/www/cache/*\" \\\n  -exec du -h {} + | sort -hr\n```\n\n**Breakdown:**\n\n| Component | Purpose |\n|---|---|\n| `find /var/www -type f` | Only regular files under `/var/www` |\n| `-mtime -1` | Modified within the last 24 hours |\n| `! -name \"*.log\"` | Exclude `.log` files |\n| `! -path \"/var/www/cache/*\"` | Exclude everything under the cache subdirectory |\n| `-exec du -h {} +` | Print human-readable size + absolute path |\n| `sort -hr` | Sort numerically by human-readable size, descending |",
+    "reasoning": "The user wants two things:\n\n1. A one-liner to find files modified in the last 24 hours under /var/www, sorted by size descending, showing size in human-readable format and absolute path.\n\n2. A 3-line variant that excludes .log files and excludes /var/www/cache subdir.\n\nLet me think about the commands:\n\n**One-liner:**\n- `find /var/www -type f -mtime -1` finds files modified in last 24 hours\n- Need to sort by size descending with human-readable format\n- `du -h` gives human-readable sizes\n- We can use `find` with `-exec du -h {} +` or pipe through `du`\n- Then sort by size descending\n\nLet me think about the best approach:\n\n```\nfind /var/www -type f -mtime -1 -exec du -h {} + | sort -hr\n```\n\nWait, `sort -hr` sorts human-readable numbers in reverse (descending). That should work.\n\nBut `du -h` shows the size and the path. The path from `find` with `-exec du -h {} +` will be the path as found. Since we're starting from `/var/www`, the paths should be absolute already.\n\nActually, let me reconsider. `find /var/www -type f -mtime -1 -exec du -h {} +` will output lines like:\n```\n4.0K    /var/www/some/file.txt\n```\n\nThen `sort -hr` will sort by the first column (size) in reverse order.\n\nThis looks good.\n\n**3-line variant excluding .log files and /var/www/cache:**\n\n```bash\nfind /var/www -type f -mtime -1 \\\n  ! -name \"*.log\" \\\n  ! -path \"/var/www/cache/*\" \\\n  -exec du -h {} + | sort -hr\n```\n\nThat's a 3-line variant (using backslash continuation). Let me make sure the exclusion works:\n- `! -name \"*.log\"` excludes files ending in .log\n- `! -path \"/var/www/cache/*\"` excludes anything under /var/www/cache/\n\nThis looks correct. Let me also consider if `du -h` might show duplicate sizes for directories if we used `du` on files — but since we use `-type f`, we only get files, so that's fine.\n\nActually, I should double-check: `du -h` on individual files will show the file size (disk usage), which is close enough. If the user wants apparent size vs disk usage, `du` shows disk usage. For apparent size, we could use `stat` or `ls -lh`. But `du -h` is the standard approach and is fine.\n\nLet me finalize both commands.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 875,
+      "total_tokens": 957,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 546,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 2.75,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785183636-6ebwXjijQ7jADUA9KrJE"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Bash: find files modified in last 24h, sorted by size",
+      "category": "Bash/Sysadmin",
+      "expected_notes": "Should use find -mtime -1 -printf, ls -lh, sort. -path exclusion syntax correct.",
+      "max_tokens": 2000,
+      "temperature": 0.3
+    }
+  }
+}

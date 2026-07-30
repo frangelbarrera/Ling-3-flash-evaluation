@@ -1,0 +1,19 @@
+{
+  "phase": "phase25_bug_haiku_gptoss",
+  "model": "openai/gpt-oss-20b:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 3000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "Silent code whispers  \nIn table, a quiet blade  \nTrust falls, silent night",
+  "reasoning": "We need a haiku about SQL injection. Must be 3 lines, 5-7-5 syllable structure. No explanation. Just the haiku. Let's craft.\n\nLine 1: 5 syllables. Something like \"Silent code whispers\" - count: Silent(2) code(1) whis-pers(2) = 5? Let's count: Silent (2), code (1), whis-pers (2) = 5. Good.\n\nLine 2: 7 syllables. \"In the database, a hidden blade\" Count: In(1) the(1) da-ta-base(3) a(1) hid-den(2) blade(1) = 1+1+3+1+2+1=9. Too many. Let's try: \"In the database, a silent blade\" Count: In(1) the(1) da-ta-base(3) a(1) sin-til(2) blade(1) = 1+1+3+1+2+1=9. Too many. Need 7.\n\nMaybe: \"In the table, a silent blade\" Count: In(1) the(1) ta-ble(2) a(1) sin-til(2) blade(1) = 1+1+2+1+2+1=8. Too many.\n\nTry: \"In the table, a hidden blade\" Count: In(1) the(1) ta-ble(2) a(1) hid-den(2) blade(1) = 1+1+2+1+2+1=8.\n\nTry: \"In the table, a quiet blade\" Count: In(1) the(1) ta-ble(2) a(1) qui-et(2) blade(1) = 1+1+2+1+2+1=8.\n\nWe need 7. Maybe reduce words: \"In table, a quiet blade\" Count: In(1) ta-ble(2) a(1) qui-et(2) blade(1) = 1+2+1+2+1=7. Good.\n\nLine 3: 5 syllables. \"User's trust betrayed\" Count: User's(2) trust(1) be- ta-ired(3) = 2+1+3=6. Too many. \"Trust betrayed\" Count: Trust(1) be- ta-ired(3) = 1+3=4. Need 5. \"Trust betrayed silently\" Count: Trust(1) be- ta-ired(3) si-lent-ly(3) = 1+3+3=7. Too many.\n\nMaybe: \"Trust is lost\" Count: Trust(1) is(1) lost(1) = 3. Need 5.\n\nTry: \"Trust falls silent\" Count: Trust(1) falls(1) si-lent(2) = 1+1+2=4.\n\nTry: \"Trust falls, silent\" Count: Trust(1) falls(1) si-lent(2) = 4.\n\nTry: \"Trust falls, silent\" still 4.\n\nTry: \"Trust falls, silent\" maybe \"falls\" 1, \"silent\" 2. 1+1+2=4. Need 5.\n\nTry: \"Trust falls, silent night\" Count: Trust(1) falls(1) si-lent(2) night(1) = 1+1+2+1=5. Good.\n\nSo final haiku:\n\nLine1: Silent code whispers (5)\nLine2: In table, a quiet blade (7)\nLine3: Trust falls, silent night (5)\n\nCheck syllable counts:\n\nLine1: Silent(2) code(1) whis-pers(2) = 5. Good.\n\nLine2: In(1) ta-ble(2) a(1) qui-et(2) blade(1) = 1+2+1+2+1=7. Good.\n\nLine3: Trust(1) falls(1) si-lent(2) night(1) = 1+1+2+1=5. Good.\n\nAll good.",
+  "content_len": 74,
+  "reasoning_len": 2058,
+  "completion_tokens": 924,
+  "prompt_tokens": 105,
+  "total_tokens": 1029,
+  "finish_reason": "stop",
+  "latency_s": 37.15,
+  "model_returned": "openai/gpt-oss-20b:free"
+}

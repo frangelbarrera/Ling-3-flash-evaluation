@@ -1,0 +1,52 @@
+{
+  "phase": "p10b_apr_apy",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "What is the difference between APR and APY? Give a numerical example showing how they differ for the same nominal rate.",
+  "timestamp": "2026-07-27T19:55:48.073720+00:00",
+  "result": {
+    "ok": true,
+    "content": "# APR vs. APY\n\n## Key Definitions\n\n| | APR | APY |\n|---|---|---|\n| **Stands for** | Annual Percentage Rate | Annual Percentage Yield |\n| **Also called** | Nominal rate | Effective annual rate |\n| **Accounts for compounding?** | ❌ No | ✅ Yes |\n| **Formula** | Periodic rate × periods/year | (1 + r/n)ⁿ − 1 |\n\n## The Core Difference\n\n- **APR** simply multiplies the periodic rate by the number of periods — it ignores the effect of compounding.\n- **APY** reflects the **actual** interest earned or paid over a year, including the compounding effect.\n\n> **APY ≥ APR**, with equality only when compounding is annual.\n\n---\n\n## Numerical Example\n\nSuppose a savings account offers a **nominal rate of 12% compounded monthly**.\n\n### APR Calculation\n$$\\text{APR} = 1\\% \\times 12 = 12\\%$$\n\n### APY Calculation\n$$\\text{APY} = \\left(1 + \\frac{0.12}{12}\\right)^{12} - 1 = (1.01)^{12} - 1 \\approx 12.68\\%$$\n\n### What This Means in Practice\nIf you invest **$10,000** for one year:\n\n| Metric | Interest Earned |\n|---|---|\n| Using APR (simple) | $10,000 × 12% = **$1,200** |\n| Using APY (compounded) | $10,000 × 12.68% = **$1,268** |\n\nThe **$68 difference** comes entirely from earning interest on previously accumulated interest (monthly compounding).\n\n---\n\n## Summary\n\n> **APR** tells you the *stated* rate; **APY** tells you the *real* rate you'll earn or pay. When comparing financial products, APY gives you a more accurate picture of the true cost or return.",
+    "reasoning": "The user is asking about the difference between APR (Annual Percentage Rate) and APY (Annual Percentage Yield), and wants a numerical example showing how they differ for the same nominal rate.\n\nLet me think through this carefully:\n\n**APR (Annual Percentage Rate):**\n- This is the nominal annual rate, which does not account for compounding within the year.\n- It's simply the stated rate per year, or the periodic rate multiplied by the number of periods.\n- APR = periodic rate × number of periods per year\n\n**APY (Annual Percentage Yield):**\n- This is the effective annual rate, which accounts for the effect of compounding.\n- APY = (1 + r/n)^n - 1, where r is the nominal rate and n is the number of compounding periods per year.\n\n**Key Difference:**\n- APR ignores compounding; APY includes it.\n- APY is always ≥ APR (equal only when compounding is annual).\n\n**Numerical Example:**\nLet's say the nominal annual rate is 12%, compounded monthly.\n\n- APR = 12% (just 1% per month × 12 months)\n- APY = (1 + 0.12/12)^12 - 1 = (1.01)^12 - 1\n\nLet me calculate (1.01)^12:\n(1.01)^12 ≈ 1.126825...\nSo APY ≈ 12.68%\n\nSo for the same nominal rate of 12%, the APR is 12% but the APY is approximately 12.68%. The difference is about 0.68 percentage points.\n\nThis is a clear and standard example. Let me present it well.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 44,
+      "completion_tokens": 874,
+      "total_tokens": 918,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 337,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 3.05,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182145-5wlnaV6vri6y5JI7akrf"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "APR vs APY with numerical example",
+      "category": "Finance",
+      "expected": {
+        "explains_apr": true,
+        "explains_apy": true,
+        "numerical_example": true
+      },
+      "notes": ""
+    }
+  }
+}

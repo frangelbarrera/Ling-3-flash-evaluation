@@ -1,0 +1,35 @@
+{
+  "phase": "p25_bug_gemma_mt400",
+  "model_label": "gemma",
+  "model_id": "google/gemma-4-26b-a4b-it:free",
+  "prompt": "Reply with exactly the word: PONG",
+  "timestamp": "2026-07-27T18:46:17.837740+00:00",
+  "result": {
+    "max_tokens": 400,
+    "ok": true,
+    "content": "PONG",
+    "reasoning": "",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 13,
+      "completion_tokens": 4,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "elapsed_s": 1.0,
+    "error": null,
+    "model_returned": "google/gemma-4-26b-a4b-it:free",
+    "raw_id": "probe3-gemma"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Phase 25 bug check: Gemma-26b mt=400",
+      "category": "BugVerification",
+      "expected": {
+        "produces_output": true
+      },
+      "notes": "Gemma comparison: 0 reasoning tokens, produced output. Non-reasoning model."
+    }
+  }
+}

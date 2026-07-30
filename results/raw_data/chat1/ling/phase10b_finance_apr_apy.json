@@ -1,0 +1,19 @@
+{
+  "phase": "phase10b_finance_apr_apy",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "What is the difference between APR and APY? Give a numerical example showing how they differ.",
+  "max_tokens": 2000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "## APR vs. APY\n\n### Key Difference\n\n| | **APR** (Annual Percentage Rate) | **APY** (Annual Percentage Yield) |\n|---|---|---|\n| **What it is** | The **nominal** annual interest rate | The **effective** annual interest rate |\n| **Compounding** | Does **not** account for compounding | **Does** account for compounding |\n| **Typical use** | Loans, mortgages (what you **pay**) | Savings, investments (what you **earn**) |\n\n### The Formula\n\n$$APY = \\left(1 + \\frac{APR}{n}\\right)^n - 1$$\n\nwhere *n* = number of compounding periods per year.\n\n---\n\n### Numerical Example\n\nSuppose you have **$10,000** at a **12% APR**, compounded **monthly** (n = 12).\n\n**Step 1 — Calculate APY:**\n\n$$APY = \\left(1 + \\frac{0.12}{12}\\right)^{12} - 1 = (1.01)^{12} - 1 \\approx 0.1268 = 12.68\\%$$\n\n**Step 2 — Compare after 1 year:**\n\n| Method | Calculation | Balance After 1 Year |\n|---|---|---|\n| **APR (simple interest)** | $10,000 × 1.12 | **$11,200.00** |\n| **APY (compound interest)** | $10,000 × 1.126825 | **$11,268.25** |\n\n### The Takeaway\n\nThe **0.68 percentage point** difference between APY (12.68%) and APR (12%) represents the **extra earnings from compounding**. Over larger balances, longer time horizons, or higher rates, this gap grows significantly — which is why APY gives a more accurate picture of your true return (or cost).",
+  "reasoning": "The user is asking about the difference between APR (Annual Percentage Rate) and APY (Annual Percentage Yield), and wants a numerical example. Let me think through this carefully.\n\nAPR (Annual Percentage Rate) is the simple annual interest rate without accounting for compounding. It's the nominal rate. For example, if you have a 12% APR, that's 1% per month (if compounded monthly), but APR itself doesn't factor in the effect of compounding.\n\nAPY (Annual Percentage Yield), also called EAR (Effective Annual Rate), takes compounding into account. It reflects the actual rate of return or the actual cost of borrowing when compounding is considered.\n\nThe formula relating them:\nAPY = (1 + r/n)^n - 1\n\nwhere r is the APR (nominal rate) and n is the number of compounding periods per year.\n\nLet me construct a clear numerical example.\n\nSay APR = 12%, compounded monthly (n = 12).\n\nAPY = (1 + 0.12/12)^12 - 1\n= (1 + 0.01)^12 - 1\n= (1.01)^12 - 1\n\nLet me calculate (1.01)^12:\n(1.01)^12 = 1.126825...\n\nSo APY ≈ 12.68%\n\nThe difference is 12.68% - 12% = 0.68 percentage points.\n\nLet me also think about a practical example with a principal amount to make it more concrete.\n\nIf you invest $10,000 at 12% APR compounded monthly:\n- After one year, using simple interest (APR): $10,000 × 0.12 = $1,200 → $11,200\n- After one year, using compound interest (APY): $10,000 × (1.01)^12 = $10,000 × 1.126825 = $11,268.25\n\nThe extra $68.25 is the effect of compounding, which is what APY captures.\n\nI should also mention the key distinction: APR is used more for loans/mortgages (what you pay), APY is used more for savings/investments (what you earn), though both can apply to either context. APR typically doesn't include fees in some contexts (like for savings APY), but for loans, APR may include certain fees. Let me keep it focused on the compounding distinction since that's the core mathematical difference.",
+  "content_len": 1320,
+  "reasoning_len": 1898,
+  "completion_tokens": 1061,
+  "prompt_tokens": 39,
+  "total_tokens": 1100,
+  "finish_reason": "stop",
+  "latency_s": 4.1,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

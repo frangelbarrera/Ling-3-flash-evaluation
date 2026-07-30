@@ -1,0 +1,51 @@
+{
+  "phase": "p01_model_id",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "What model are you? State your name, version, and creator.",
+  "timestamp": "2026-07-27T18:03:49.748241+00:00",
+  "result": {
+    "ok": true,
+    "content": "I am **Ling**, a general-purpose language model developed by **Ant Group**. My current version is part of the **Ling series**, designed to support a wide range of tasks with high efficiency and scalability.",
+    "reasoning": "Hmm, the user is asking for my identity details. This is a straightforward factual question about my model specifications. \n\nI should provide a clear and concise response that includes my name, version, and creator as requested. The user seems to want basic identification information, so I'll keep it factual without unnecessary elaboration.\n\nI recall that I'm Ling from Ant Group's AGI initiative, so I'll state that directly. The response should be structured to answer all three parts of the question clearly.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 148,
+      "total_tokens": 182,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 130,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 2.33,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785175427-ro7K7wiobg7xjTHmEP0c"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Model self-identification",
+      "category": "Verification",
+      "expected": {
+        "mentions_ling": true,
+        "mentions_antgroup_or_alibaba": true
+      },
+      "notes": "Verify the model self-identifies as Ling by Ant Group."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "phase10d_finance_risk",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "A bank has a loan portfolio with 60% in mortgages (3% default rate) and 40% in personal loans (8% default rate). What is the overall expected default rate of the portfolio?",
+  "max_tokens": 1500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "## Overall Expected Default Rate\n\nThe overall expected default rate is calculated as a **weighted average** of the individual default rates:\n\n$$E[\\text{Default Rate}] = w_{\\text{mortgage}} \\times d_{\\text{mortgage}} + w_{\\text{personal}} \\times d_{\\text{personal}}$$\n\n$$= (0.60 \\times 0.03) + (0.40 \\times 0.08)$$\n\n$$= 0.018 + 0.032$$\n\n$$= \\boxed{0.05 = 5\\%}$$\n\n**Interpretation:** The bank's overall portfolio is expected to have a **5% default rate**. Despite personal loans having a much higher individual default rate (8%), the larger mortgage share (60%) with its low default rate (3%) pulls the blended rate down to 5%.",
+  "reasoning": "This is a straightforward weighted average calculation.\n\nThe portfolio consists of:\n- 60% mortgages with a 3% default rate\n- 40% personal loans with an 8% default rate\n\nOverall expected default rate = (weight_mortgage × default_rate_mortgage) + (weight_personal_loan × default_rate_personal_loan)\n\n= (0.60 × 0.03) + (0.40 × 0.08)\n= 0.018 + 0.032\n= 0.05\n= 5%",
+  "content_len": 625,
+  "reasoning_len": 357,
+  "completion_tokens": 329,
+  "prompt_tokens": 64,
+  "total_tokens": 393,
+  "finish_reason": "stop",
+  "latency_s": 1.51,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

@@ -1,0 +1,50 @@
+{
+  "phase": "s06_haiku_effortlow_mt2000",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a haiku about SQL injection. Strictly 5-7-5 syllables. Only the haiku, no commentary.",
+  "timestamp": "2026-07-27T19:53:59.481989+00:00",
+  "result": {
+    "ok": true,
+    "content": "",
+    "reasoning": "1.  **Analyze the Request:**\n    *   Topic: SQL injection.\n    *   Format: Haiku.\n    *   Constraint 1: Strictly 5-7-5 syllables.\n    *   Constraint 2: Only the haiku, no commentary.\n\n2.  **Deconstruct the Topic (SQL Injection):**\n    *   Keywords: SQL, injection, query, string, drop, table, quote, escape, malicious, data, breach.\n\n3.  **Drafting - Line 1 (5 syllables):**\n    *   *Malicious string* (5: Ma-li-cious string) -> Wait, mal-i-cious (3) + string (1) = 4.\n    *   *Ma-li-cious code* (5: Ma-li-cious code) -> Ma(1) li(2) cious(3) code(4) - wait, ma-licious (3) code (1) = 4.\n    *   *Ma-licious strings* -> Ma(1)-lici(2)-ous(3) strings(4) = 4.\n    *   *Ma-licious input* -> Ma(1)-lici(2)-ous(3) in(4)-put(5) = 5.\n    *   *Drop the table now* -> Drop(1) the(2) ta(3)-ble(4) now(5) = 5.\n    *   *Malicious quote* -> Ma(1)-lici(2)-ous(3) quote(4) = 4.\n    *   *Ma-licious data* -> Ma(1)-lici(2)-ous(3) da(4)-ta(5) = 5. (Good)\n\n4.  **Drafting - Line 2 (7 syllables):**\n    *   *Injecting into the query* -> In(1)-ject(2)-ing(3) in(4)-to(5) the(6) que(7)-ry(8) = 8.\n    *   *Injecting in the query* -> In(1)-ject(2)-ing(3) in(4) the(5) que(6)-ry(7) = 7. (Good)\n    *   *Bypassing the login* -> By(1)-pas(2)-sing(3) the(4) lo(5)-gin(6) = 6.\n    *   *Bypassing the secure login* -> By(1)-pas(2)-sing(3) the(4) se(5)-cure(6) lo(7)-gin(8) = 8.\n    *   *Bypassing the secure gate* -> By(1)-pas(2)-sing(3) the(4) se(5)-cure(6) gate(7) = 7. (Good)\n    *   *Stealing all the data* -> Steal(1)-ing(2) all(3) the(4) da(5)-ta(6) = 6.\n    *   *Stealing all the user data* -> Steal(1)-ing(2) all(3) the(4) u(5)-ser(6) da(7)-ta(8) = 8.\n    *   *Stealing the user data* -> Steal(1)-ing(2) the(3) u(4)-ser(5) da(6)-ta(7) = 7. (Good)\n\n5.  **Drafting - Line 3 (5 syllables):**\n    *   *Tables drop to dust* -> Ta(1)-bles(2) drop(3) to(4) dust(5) = 5. (Good)\n    *   *Data fades away* -> Da(1)-ta(2) fades(3) a(4)-way(5) = 5. (Good)\n    *   *Tables drop and burn* -> Ta(1)-bles(2) drop(3) and(4) burn(5) = 5. (Good)\n\n6.  **Review and Refine:**\n    *   *Ma-licious data* (5)\n    *   *Stealing the user data* (7) -> Steal-ing the u-ser da-ta (7)\n    *   *Tables drop to dust* (5) -> Ta-bles drop to dust (5)\n\n    Let's check syllables carefully:\n    Line 1: Ma-licious da-ta (5) -> Ma(1)-lici(2)-ous(3) da(4)-ta(5). Correct.\n    Line 2: Steal-ing the u-ser da-ta (7) -> Steal(1)-ing(2) the(3) u(4)-ser(5) da(6)-ta(7). Correct.\n    Line 3: Ta-bles drop to dust (5) -> Ta(1)-bles(2) drop(3) to(4) dust(5). Correct.\n\n    Wait, \"Stealing the user data\" is a bit repetitive with \"data\" in line 1. Let's change line 1 or 2.\n\n    Alternative Line 1: *Malicious quote* (4) -> Ma-licious quote (4). No.\n    *Malicious input* -> Ma(1)-lici(2)-ous(3) in(4)-put(5) = 5.\n    Alternative Line 2: *Bypassing the secure gate* -> By(1)-pas(2)-sing(3) the(4) se(5)-cure(6) gate(7) = 7.\n    Alternative Line 3: *Tables drop to dust* -> Ta(1)-bles(2) drop(3) to(4) dust(5) = 5.\n\n    Let's check \"Malicious input\":\n    Ma - li - cious (3) in - put (2) = 5. Correct.\n\n    Let's check \"Bypassing the secure gate\":\n    By - pas - sing (3) the (1) se - cure (2) gate (1) = 7. Correct.\n\n    Let's check \"Tables drop to dust\":\n    Ta - bles (2) drop (1) to (1) dust (1) = 5. Correct.\n\n    Let's try another one, maybe more focused on the SQL syntax itself.\n    Line 1: *Drop the table now* (5) -> Drop(1) the(2) ta(3)-ble(4) now(5).\n    Line 2: *Injecting in the query* (7) -> In(1)-ject(2)-ing(3) in(4) the(5) que(6)-ry(7).\n    Line 3: *Tables drop to dust* (5) -> Ta(1)-bles(2) drop(3) to(4) dust(5).\n\n    Wait, \"query\" is 2 syllables (que-ry).\n    In-jec-ting (3) in (1) the (1) que-ry (2) = 7. Correct.\n\n    Let's try:\n    Line 1: *Malicious quote* (4) - no.\n    Line 1: *Malicious string* (4) - no.\n    Line 1: *Malicious input* (5) - Ma-licious in-put.\n    Line 2: *Bypassing the secure gate* (7) - By-pass-ing the se-cure gate.\n    Line 3: *Tables drop to dust* (5) - Ta-bles drop to dust.\n\n    Let's try one with \"SQL\" (S-Q-L = 3 syllables? Or 1? Usually pronounced \"ess-que-el\" = 3 syllables. Or \"SQL\" as an acronym = 3. Let's avoid \"SQL\" to be safe on syllable count, or use it carefully. \"S-Q-L\" is 3. \"es-que-el\" is 3.\n    Line 1: *S-Q-L in-ject* (5) -> S-Q-L (3) in (1) ject (1) = 5.\n    Line 2: *Bypass-ing the se-cure gate* (7) -> By(1)-pas(2)-sing(3) the(4) se(5)-cure(6) gate(7) = 7.\n    Line 3: *Da-ta fades a-way* (5) -> Da(1)-ta(2) fades(3) a(4)-way(5) = 5.\n\n    Let's verify \"S-Q-L in-ject\":\n    S (1) Q (2) L (3) in (4) ject (5). Yes, 5 syllables if spelled out. But usually \"SQL\" is read as one word or",
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 47,
+      "completion_tokens": 2000,
+      "total_tokens": 2047,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1166,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 7.8,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182031-6hgidrUN1ebVmpu53BWq",
+    "extra_body_used": {
+      "reasoning": {
+        "effort": "low"
+      }
+    }
+  },
+  "extra": {
+    "test": "failing_prompts_effort_low",
+    "prompt_name": "haiku",
+    "max_tokens": 2000
+  }
+}

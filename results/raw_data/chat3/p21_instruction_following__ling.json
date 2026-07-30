@@ -1,0 +1,53 @@
+{
+  "phase": "p21_instruction_following",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Perform these 4 tasks in order, output as a numbered list (one line per task):\n1. Spell the word HELLO backwards.\n2. Compute 5 + 6.\n3. Name the largest planet in our solar system.\n4. Convert 100°F to °C and round to 1 decimal.\nFormat: '1. <answer>' on each line, no extra commentary.",
+  "timestamp": "2026-07-27T19:56:58.305797+00:00",
+  "result": {
+    "ok": true,
+    "content": "1. OLLEH\n2. 11\n3. Jupiter\n4. 37.8°C",
+    "reasoning": "1. HELLO backwards: O-L-L-E-H → OLLEH. 2. 5+6=11. 3. Largest planet: Jupiter. 4. (100-32)*5/9 = 68*5/9 = 340/9 = 37.777... ≈ 37.8°C.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 108,
+      "total_tokens": 216,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 36,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 1.26,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182217-TM1H5mixubUPJrlDMYXr"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "4-task instruction following (ordered list)",
+      "category": "Instruction",
+      "expected": {
+        "q1": "OLLEH",
+        "q2": "11",
+        "q3": "Jupiter",
+        "q4": "37.8"
+      },
+      "notes": ""
+    }
+  }
+}

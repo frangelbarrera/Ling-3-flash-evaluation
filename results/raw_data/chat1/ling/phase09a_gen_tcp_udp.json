@@ -1,0 +1,19 @@
+{
+  "phase": "phase09a_gen_tcp_udp",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Explain the difference between TCP and UDP. Give 3 real-world examples of protocols/applications that use each.",
+  "max_tokens": 2000,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "# TCP vs. UDP\n\n## Key Differences\n\n| Feature | TCP | UDP |\n|---|---|---|\n| **Connection** | Connection-oriented (3-way handshake) | Connectionless (no handshake) |\n| **Reliability** | Guaranteed delivery with acknowledgments & retransmissions | No delivery guarantees |\n| **Ordering** | Packets arrive in order | No ordering guarantee |\n| **Speed** | Slower due to overhead | Fast and lightweight |\n| **Flow/Congestion Control** | Yes | No |\n| **Header Size** | Larger (20+ bytes) | Smaller (8 bytes) |\n\n**In short:** TCP prioritizes **accuracy and reliability**, while UDP prioritizes **speed and efficiency**.\n\n---\n\n## TCP Examples\n1. **HTTP/HTTPS** — Web browsing requires every page element to load completely and correctly.\n2. **FTP** — File transfers must arrive intact and in full; a single corrupted byte is unacceptable.\n3. **SMTP (Email)** — Emails must be delivered reliably and in the correct sequence.\n\n## UDP Examples\n1. **DNS** — Quick, small queries where a lost request is simply retried instantly.\n2. **VoIP / Video Conferencing (e.g., Zoom, Skype)** — Dropping a few packets is preferable to delays from retransmission; real-time matters more than perfection.\n3. **Online Gaming** — Fast, continuous data streams where outdated packets are discarded in favor of the latest state.",
+  "reasoning": "The user is asking about the differences between TCP and UDP, and wants 3 real-world examples of protocols/applications for each. This is a networking fundamentals question. Let me organize my thoughts on the key differences and then provide clear examples.\n\nTCP (Transmission Control Protocol):\n- Connection-oriented (requires a handshake)\n- Reliable delivery with acknowledgments and retransmissions\n- Ordered delivery of packets\n- Flow control and congestion control\n- Slower due to overhead\n- Used when data integrity is critical\n\nUDP (User Datagram Protocol):\n- Connectionless (no handshake)\n- No guaranteed delivery or ordering\n- No flow control or congestion control\n- Lightweight and fast\n- Used when speed matters more than perfect reliability\n\nReal-world examples:\n\nTCP:\n1. HTTP/HTTPS (web browsing)\n2. FTP (file transfer)\n3. SMTP (email)\n\nUDP:\n1. DNS (domain name resolution)\n2. VoIP / video conferencing (e.g., Skype, Zoom)\n3. Online gaming / streaming (e.g., live video streaming)",
+  "content_len": 1298,
+  "reasoning_len": 993,
+  "completion_tokens": 554,
+  "prompt_tokens": 42,
+  "total_tokens": 596,
+  "finish_reason": "stop",
+  "latency_s": 2.37,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

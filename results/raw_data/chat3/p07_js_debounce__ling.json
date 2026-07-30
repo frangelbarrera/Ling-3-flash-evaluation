@@ -1,0 +1,51 @@
+{
+  "phase": "p07_js_debounce",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Write a JavaScript `debounce(func, wait)` function with full JSDoc, including @param and @returns tags. Include a short usage example.",
+  "timestamp": "2026-07-27T19:55:13.849848+00:00",
+  "result": {
+    "ok": true,
+    "content": "```javascript\n/**\n * Creates a debounced function that delays invoking `func` until after\n * `wait` milliseconds have elapsed since the last time the debounced\n * function was invoked.\n *\n * @param {Function} func - The function to debounce.\n * @param {number} wait - The number of milliseconds to delay.\n * @returns {Function} A new debounced function with a `.cancel()` method\n *                     to cancel pending invocations and a `.flush()` method\n *                     to immediately invoke the pending call.\n *\n * @example\n * // Debounce a window resize handler so it only fires after\n * // the user has stopped resizing for 250ms.\n * const handleResize = debounce(() => {\n *   console.log('Resized!', window.innerWidth, window.innerHeight);\n * }, 250);\n *\n * window.addEventListener('resize', handleResize);\n *\n * // Later, to cancel any pending invocation:\n * handleResize.cancel();\n */\nfunction debounce(func, wait) {\n  let timeoutId = null;\n\n  /**\n   * The debounced function.\n   *\n   * @this {*} The context (`this`) of the original call.\n   * @param {...*} args - Arguments passed to the debounced function.\n   * @returns {void}\n   */\n  function debounced(...args) {\n    const context = this;\n\n    clearTimeout(timeoutId);\n\n    timeoutId = setTimeout(() => {\n      timeoutId = null;\n      func.apply(context, args);\n    }, wait);\n  }\n\n  /**\n   * Cancels any pending debounced invocation.\n   *\n   * @returns {void}\n   */\n  debounced.cancel = function () {\n    clearTimeout(timeoutId);\n    timeoutId = null;\n  };\n\n  /**\n   * Immediately invokes the debounced function if there is a pending call.\n   *\n   * @returns {void}\n   */\n  debounced.flush = function () {\n    if (timeoutId !== null) {\n      clearTimeout(timeoutId);\n      timeoutId = null;\n      func.apply(this, debounced._args);\n    }\n  };\n\n  return debounced;\n}\n```\n\n### How It Works\n\n| Concept | Detail |\n|---|---|\n| **Core idea** | Each call resets a `setTimeout` timer. `func` only fires once the timer expires without being reset. |\n| **`.cancel()`** | Clears the pending timer — useful for cleanup (e.g., `componentWillUnmount`). |\n| **`.flush()`** | Forces the pending call to execute immediately. |\n| **`this` binding** | Preserved via `.apply(context, args)` so the debounced function works correctly as an event handler or method. |\n\n### Quick Usage Example\n\n```javascript\n// Search input that fires an API call only after the user stops typing\nconst searchInput = document.getElementById('search');\n\nconst fetchResults = debounce((query) => {\n  console.log('Searching for:', query);\n  // fetch(`/api/search?q=${query}`);\n}, 300);\n\nsearchInput.addEventListener('input', (e) => {\n  fetchResults(e.target.value);\n});\n```\n\nIn this example, rapid keystrokes are coalesced into a single call 300 ms after the user stops typing, reducing unnecessary API requests.",
+    "reasoning": "The user wants a JavaScript `debounce` function with full JSDoc documentation including `@param` and `@returns` tags, plus a short usage example. Let me write a clean, well-documented debounce implementation.\n\nA debounce function delays the execution of `func` until after `wait` milliseconds have elapsed since the last time it was invoked. I need to handle the `immediate` parameter as well for completeness, but the signature requested is `debounce(func, wait)`, so I'll keep it simple with just those two parameters.\n\nLet me write this out with proper JSDoc.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 51,
+      "completion_tokens": 902,
+      "total_tokens": 953,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 142,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 2.89,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182111-DCmK0cfWlJlsimi7fZq9"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "JavaScript: debounce with JSDoc",
+      "category": "Coding",
+      "expected": {
+        "has_jsdoc": true,
+        "uses_settimeout": true
+      },
+      "notes": ""
+    }
+  }
+}

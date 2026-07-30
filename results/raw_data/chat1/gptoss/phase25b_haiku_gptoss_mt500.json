@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_gptoss_mt500",
+  "model": "openai/gpt-oss-20b:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "",
+  "reasoning": "We need to write a haiku about SQL injection. Must have 3 lines, 5-7-5 syllable structure. No explanation. Just the haiku. Let's craft.\n\nLine 1: 5 syllables. Something like \"Code whispers danger\". Count syllables: Code(1) whis-pers(2) dan-ger(3). That's 3. Need 5. Maybe \"Silent query lingers\". Count: Si-lent(2) que-ry(2) lin-gers(3). That's 5? Wait: \"Silent\" 2, \"query\" 2, \"lingers\" 2? Actually lingers 2. So total 6. Let's count properly: Silent (2), query (2), lingers (2) => 6. Too many. Let's try \"Silent query lingers\". That's 6. Need 5. Maybe \"Silent query lingers\" is 6. Let's adjust: \"Silent query lingers\" maybe 5? Let's count again: Si-lent (2), que-ry (2), lin-gers (2). 2+2+2=6. So too many. Let's try \"Silent query lingers\". Another approach: \"Silent query lingers\" maybe 5 if we treat \"query\" as one? But it's two. So no.\n\nLine 1: \"Hidden code whispers\". Count: Hidden(2), code(1), whis-pers(2) => 5. Good.\n\nLine 2: 7 syllables. Something like \"Injection slips through walls\". Count: In-ject-ion(3), slips(1), through(1), walls(1) => 6. Need 7. Add \"softly\". \"Injection slips softly through walls\". Count: In-ject-ion(3), slips(1), soft-ly(2), through(1), walls(1) => 8? Let's count: 3+1+2+1+1=8. Too many. Let's try \"Injection slips through walls\". Count: In-ject-ion(3), slips(1), through(1), walls(1) = 6. Need 7. Add \"quietly\". \"Injection slips quietly through walls\". Count: In-ject-ion(3), slips(1), qui-et-ly(3), through(1), walls(1) => ",
+  "content_len": 0,
+  "reasoning_len": 1460,
+  "completion_tokens": 500,
+  "prompt_tokens": 105,
+  "total_tokens": 605,
+  "finish_reason": "length",
+  "latency_s": 39.62,
+  "model_returned": "openai/gpt-oss-20b:free"
+}

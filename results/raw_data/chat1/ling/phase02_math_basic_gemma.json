@@ -1,0 +1,20 @@
+{
+  "phase": "phase02_math_basic_gemma",
+  "label": "phase02_math_basic_gemma",
+  "model": "google/gemma-4-31b-it:free",
+  "prompt": "Calculate: 17 * 23 + 45 - 12. Show your work.",
+  "max_tokens": 1000,
+  "temperature": 0.3,
+  "ok": false,
+  "error": "400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\n  \\\"error\\\": {\\n    \\\"code\\\": 400,\\n    \\\"message\\\": \\\"User location is not supported for the API use.\\\",\\n    \\\"status\\\": \\\"FAILED_PRECONDITION\\\"\\n  }\\n}\\n\",\"provider_name\":\"Google AI Studio\",\"is_byok\":false,\"provider_er",
+  "content": "",
+  "reasoning": "",
+  "content_len": 0,
+  "reasoning_len": 0,
+  "completion_tokens": null,
+  "prompt_tokens": null,
+  "total_tokens": null,
+  "finish_reason": "",
+  "latency_s": null,
+  "model_returned": null
+}

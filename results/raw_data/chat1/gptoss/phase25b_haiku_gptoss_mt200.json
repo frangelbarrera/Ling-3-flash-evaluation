@@ -1,0 +1,19 @@
+{
+  "phase": "phase25b_haiku_gptoss_mt200",
+  "model": "openai/gpt-oss-20b:free",
+  "prompt": "Write a haiku about SQL injection. A haiku has exactly 3 lines with 5-7-5 syllable structure. Do not include any explanation, just the haiku.",
+  "max_tokens": 200,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "",
+  "reasoning": "We need to write a haiku about SQL injection. Must be exactly 3 lines with 5-7-5 syllable structure. No explanation, just the haiku. So we need to craft a haiku. Let's think.\n\nLine 1: 5 syllables. Something like \"Code whispers danger\" (5? Let's count: Code(1) whis-pers(2) dan-ger(3) -> 3? Wait \"Code\" 1, \"whispers\" 2, \"danger\" 2? Actually \"danger\" 2 syllables: dan-ger. So total 1+2+2=5. Good.\n\nLine 2: 7 syllables. \"SQL injection creeps unseen\" Count: SQL (1? Actually \"SQL\" is 3 letters but pronounced \"ess-queue-ell\" 3 syllables maybe? But in haiku we count syllables. \"SQL\" is 3 syllables.",
+  "content_len": 0,
+  "reasoning_len": 594,
+  "completion_tokens": 200,
+  "prompt_tokens": 105,
+  "total_tokens": 305,
+  "finish_reason": "length",
+  "latency_s": 4.73,
+  "model_returned": "openai/gpt-oss-20b:free"
+}

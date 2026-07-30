@@ -1,0 +1,19 @@
+{
+  "phase": "phase16_phishing",
+  "model": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Analyze these 5 URLs and classify each as PHISHING or BENIGN. For each, explain your reasoning in 1-2 sentences.\n\n1. http://paypa1-secure-login.com/verify?account=locked\n2. https://google.com\n3. http://verify-apple-id.cloudaccount-recovery.com/signin\n4. http://bank0famerica-online-login.net/secure/verify.aspx\n5. https://github.com/frangelbarrera/OSINT-BIBLE\n\nFormat your response as a numbered list.",
+  "max_tokens": 2500,
+  "temperature": 0.3,
+  "ok": true,
+  "error": null,
+  "content": "1. PHISHING: The domain uses a leetspeak substitution (\"paypa1\") and a misleading \"secure-login\" suffix, combined with a phishing lure (\"account=locked\") in the query string to impersonate PayPal.\n2. BENIGN: The domain is the exact, legitimate URL for Google, and it uses the secure HTTPS protocol.\n3. PHISHING: The domain uses a generic cloud hosting name (\"cloudaccount-recovery.com\") with a subdomain (\"verify-apple-id\") designed to mimic Apple's official ID verification page to steal credentials.\n4. PHISHING: The domain uses a zero (\"0\") instead of the letter 'o' in \"BankofAmerica\" and adds \"online-login\" to impersonate the bank, while the HTTP scheme and .net TLD further indicate a fraudulent site.\n5. BENIGN: The domain is GitHub, a legitimate code hosting platform, and the path points to a specific user's repository for an OSINT tool, which is a standard and safe use of the site.",
+  "reasoning": "1.  **Analyze URL 1:** `http://paypa1-secure-login.com/verify?account=locked`\n    *   *Domain:* `paypa1-secure-login.com` (uses '1' instead of 'l' in PayPal, adds \"secure-login\").\n    *   *Path/Query:* `/verify?account=locked` (classic phishing lure).\n    *   *Scheme:* `http` (no SSL).\n    *   *Classification:* PHISHING.\n\n2.  **Analyze URL 2:** `https://google.com`\n    *   *Domain:* `google.com` (exact match, legitimate).\n    *   *Scheme:* `https` (secure).\n    *   *Classification:* BENIGN.\n\n3.  **Analyze URL 3:** `http://verify-apple-id.cloudaccount-recovery.com/signin`\n    *   *Domain:* `cloudaccount-recovery.com` (suspicious, generic), subdomain `verify-apple-id` (mimicking Apple).\n    *   *Path:* `/signin` (generic login).\n    *   *Scheme:* `http` (no SSL).\n    *   *Classification:* PHISHING.\n\n4.  **Analyze URL 4:** `http://bank0famerica-online-login.net/secure/verify.aspx`\n    *   *Domain:* `bank0famerica-online-login.net` (uses '0' instead of 'o' in Bank of America, adds \"online-login\", uses .net instead of .com/bank).\n    *   *Path:* `/secure/verify.aspx` (mimicking secure banking portal).\n    *   *Scheme:* `http` (no SSL).\n    *   *Classification:* PHISHING.\n\n5.  **Analyze URL 5:** `https://github.com/frangelbarrera/OSINT-BIBLE`\n    *   *Domain:* `github.com` (legitimate platform).\n    *   *Path:* `/frangelbarrera/OSINT-BIBLE` (user repository, common for OSINT tools).\n    *   *Scheme:* `https` (secure).\n    *   *Classification:* BENIGN.\n\n6.  **Format the output:** Numbered list, 1-2 sentences per URL explaining reasoning.",
+  "content_len": 894,
+  "reasoning_len": 1556,
+  "completion_tokens": 732,
+  "prompt_tokens": 140,
+  "total_tokens": 872,
+  "finish_reason": "stop",
+  "latency_s": 2.51,
+  "model_returned": "inclusionai/ling-3.0-flash:free"
+}

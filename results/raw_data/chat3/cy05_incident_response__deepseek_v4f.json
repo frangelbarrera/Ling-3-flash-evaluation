@@ -1,0 +1,49 @@
+{
+  "phase": "cy05_incident_response",
+  "model_label": "deepseek_v4f",
+  "model_id": "deepseek/deepseek-v4-flash",
+  "prompt": "It's 2 AM. Your SIEM alerts show: (a) a domain controller is making outbound SMB connections to an unknown IP, (b) BitDefender has flagged 3 endpoints with 'Behavior:Ransomware', (c) the backup server is offline. Walk me through your first 30 minutes, step by step, with concrete actions. Use NIST IR framework phases.",
+  "timestamp": "2026-07-27T20:28:31.379357+00:00",
+  "result": {
+    "ok": true,
+    "content": "This is a classic \"all-hands-on-deck\" scenario. At 2 AM, you are likely the sole responder (SOC analyst or on-call engineer). I will walk through this using the **NIST SP 800-61 Rev. 2** framework: **Preparation, Detection & Analysis, Containment, Eradication, Recovery, and Post-Incident Activity**.\n\nGiven the severity (DC outbound SMB + ransomware flags + backup offline), **assume a ransomware outbreak is in progress**. Speed is critical; accuracy is paramount.\n\n---\n\n### Phase 0: Preparation (Already Done - Implicit)\n- **Assumption:** You have a jump box, admin credentials, network segmentation, and a pre-approved \"break glass\" procedure for isolating hosts.\n- **Action:** Grab your incident response kit (laptop, VPN, out-of-band comms like Slack/Teams, phone tree).\n\n---\n\n### Phase 1: Detection & Analysis (Minutes 0–10)\n\n**Goal:** Confirm the alerts are not false positives and assess the blast radius.\n\n**Step 1: Triage the Alerts (Min 0–2)**\n- **Action:** Open your SIEM. Do **not** click on the alerts from your production workstation. Use a jump box or isolated VM.\n- **Check:**\n    - **DC Outbound SMB:** Is the destination IP known (e.g., cloud backup, patch server)? If not, it's likely C2 or lateral movement. **Note:** SMB outbound from a DC is almost never legitimate.\n    - **BitDefender Alerts:** Are these 3 endpoints in the same subnet as the DC? (e.g., Sales, HR, IT). If yes, the DC is likely the pivot point.\n    - **Backup Server Offline:** Is this a scheduled maintenance window? (Unlikely at 2 AM). Check last heartbeat. If it's a Veeam/Commvault server, check if the service account was recently used to log in.\n\n**Step 2: Verify the Backup Server (Min 2–5)**\n- **Action:** Attempt a direct out-of-band connection (e.g., iLO/iDRAC, or a separate management VLAN) to the backup server.\n- **Outcome:** If you cannot ping or RDP, assume it is **encrypted or destroyed**. If you can, check the process list for `vssadmin`, `wmic`, or `cipher.exe` running. **Do not log in with domain credentials** – use a local admin account stored in a password manager.\n\n**Step 3: Correlate the Events (Min 5–10)**\n- **Action:** Query the SIEM for:\n    - **Logon events (Event ID 4624)** on the DC from the 3 flagged endpoints in the last 2 hours.\n    - **SMB file share access (Event ID 5140)** from the DC to the unknown IP.\n    - **Any scheduled tasks created** on the DC or endpoints (Event ID 4698).\n- **Finding:** If you see a single user account (e.g., `svc_backup`) logging into all 3 endpoints and the DC, you have found the initial compromise vector.\n\n**Decision Point:** If you confirm **any** of the following, move immediately to Containment:\n- Unknown IP is a known C2 (check AlienVault OTX, VirusTotal).\n- Backup server is unresponsive.\n- Files on endpoints are being renamed (e.g., `.encrypted`).\n\n---\n\n### Phase 2: Containment (Minutes 10–20)\n\n**Goal:** Stop the spread. **Do not** try to clean yet. Isolate.\n\n**Step 4: Kill the Network (Min 10–12)**\n- **Action:** **Disable the network switch ports** for the 3 flagged endpoints and the Domain Controller. Use your network management tool (e.g., Cisco ISE, Aruba ClearPass, or direct SSH to the switch).\n    - *Why not just disable the NIC?* The malware may have persistence that re-enables it. Physical port isolation is definitive.\n- **Action:** **Block the unknown IP** at the firewall (outbound and inbound) immediately.\n\n**Step 5: Isolate the Domain Controller (Min 12–15)**\n- **Action:** On the DC, **disable the Kerberos and NTLM authentication** for the compromised user account (if identified). If not, disable the `svc_backup` or any service account that appeared in the logs.\n- **Action:** **Reset the KRBTGT password twice** (this invalidates all Kerberos tickets, forcing re-authentication). *Note: This will cause a domain-wide authentication storm, but it's necessary to break the attacker's persistent access.*\n- **Action:** **Power off the backup server** via iLO/iDRAC. Do not shut it down gracefully – pull the virtual power cord. This prevents the ransomware from encrypting the backup chain.\n\n**Step 6: Preserve Evidence (Min 15–20)**\n- **Action:** On the DC and one of the flagged endpoints, take a **memory dump** (using FTK Imager or DumpIt) and a **forensic image** of the system drive (if possible, via network share to a forensic NAS). If not possible, capture the `C:\\Windows\\System32\\config\\SAM` and `SECURITY` hives.\n- **Action:** **Disconnect the backup server's storage** (SAN/NAS) from the network. Do not delete the backup chain yet – you may need it for recovery.\n\n---\n\n### Phase 3: Eradication (Minutes 20–25)\n\n**Goal:** Remove the malware and close the entry point.\n\n**Step 7: Identify the Root Cause (Min 20–22)**\n- **Action:** Check the DC's `Security` log for the **exact time** the outbound SMB connection started. Look for a PowerShell script or scheduled task that initiated it.\n- **Action:** Check the 3 endpoints for common ransomware artifacts: `vssadmin delete shadows /all /quiet`, `bcdedit /set {default} recoveryenabled No`, and any `.txt` ransom notes.\n\n**Step 8: Clean the Compromised Accounts (Min 22–25)**\n- **Action:** **Disable** the user account(s) that were used for lateral movement.\n- **Action:** **Revoke all Kerberos tickets** for those accounts (`klist -li 0x3e7 purge` on the DC).\n- **Action:** **Remove any unknown scheduled tasks** or services on the DC and endpoints.\n\n---\n\n### Phase 4: Recovery (Minutes 25–30)\n\n**Goal:** Restore critical services (Domain Controller first) while preserving forensic evidence.\n\n**Step 9: Rebuild the Domain Controller (Min 25–28)**\n- **Action:** **Do not** restore from backup yet (the backup may be compromised). Instead, **promote a new Domain Controller** from a clean, patched Windows Server VM that was never on the network.\n- **Action:** **Transfer FSMO roles** to the new DC. Demote the compromised DC (forcefully if needed).\n\n**Step 10: Restore the Backup Server (Min 28–30)**\n- **Action:** **Boot the backup server from a clean ISO** (not the local disk). Restore the backup software from a known-good installer.\n- **Action:** **Do not** connect the backup storage yet. First, scan the backup storage for ransomware signatures using a dedicated scanner (e.g., BitDefender GravityZone on a clean VM).\n\n**Step 11: Initial Communication (Min 30)**\n- **Action:** Send a **SMS/Phone call** to the CISO and IT Director: *\"Confirmed ransomware outbreak. DC, 3 endpoints, backup server isolated. No data exfiltration confirmed yet. New DC being promoted. Recovery ETA: 4-6 hours for core AD. Full recovery pending backup integrity check.\"*\n\n---\n\n### Critical Mistakes to Avoid at 2 AM:\n1.  **Don't log into the DC with domain admin credentials** – the attacker may be watching.\n2.  **Don't run a full antivirus scan** – it will take hours and may trigger the ransomware to encrypt more data.\n3.  **Don't pay the ransom** – even if you have crypto, it funds the next attack.\n4.  **Don't forget to document** – every command you run, every port you disable, every account you disable. You will need this for the post-mortem.\n\n**Outcome after 30 minutes:** The outbreak is contained to 3 endpoints and 1 DC. The backup server is offline but not encrypted. You have a clean path to rebuild AD and restore from a known-good backup (if the backup chain is clean). You have preserved evidence for law enforcement (if required).",
+    "reasoning": "",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 85,
+      "completion_tokens": 1880,
+      "total_tokens": 1965,
+      "cost": 0.000343746,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 32,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000343746,
+        "upstream_inference_prompt_cost": 5.346e-06,
+        "upstream_inference_completions_cost": 0.0003384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 76.61,
+    "error": null,
+    "model_returned": "deepseek/deepseek-v4-flash",
+    "raw_id": "gen-1785184035-pjdY8t6SN6xqFCqD5fsS"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "IR ransomware",
+      "category": "Cybersec-comparison",
+      "max_tokens": 4000,
+      "temperature": 0.3,
+      "is_comparison": true
+    }
+  }
+}

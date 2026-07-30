@@ -1,0 +1,54 @@
+{
+  "phase": "p19_capitals",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "What is the capital of each of these countries? Answer as a numbered list, one country per line, format: 'Country: Capital'.\n1. Australia\n2. Brazil\n3. Kazakhstan\n4. Ivory Coast\n5. Myanmar",
+  "timestamp": "2026-07-27T19:56:54.855977+00:00",
+  "result": {
+    "ok": true,
+    "content": "1. Australia: Canberra\n2. Brazil: Brasília\n3. Kazakhstan: Astana\n4. Ivory Coast: Yamoussoukro\n5. Myanmar: Naypyidaw",
+    "reasoning": "The user wants me to list the capitals of 5 countries in a specific format: numbered list, one country per line, format 'Country: Capital'.\n\n1. Australia - Canberra\n2. Brazil - Brasília\n3. Kazakhstan - Astana (formerly Nur-Sultan, but officially reverted to Astana in 2022)\n4. Ivory Coast - Yamoussoukro (official capital), but Abidjan is the economic capital and seat of most embassies. The official capital is Yamoussoukro.\n5. Myanmar - Naypyidaw\n\nLet me format these correctly.",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 69,
+      "completion_tokens": 169,
+      "total_tokens": 238,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 123,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 1.28,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182213-6bw2MOi6iUswst4id9jT"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "5 country capitals (with de facto traps)",
+      "category": "Hallucination",
+      "expected": {
+        "australia": "Canberra",
+        "brazil": "Brasília",
+        "kazakhstan": "Astana",
+        "ivory_coast": "Yamoussoukro",
+        "myanmar": "Naypyidaw"
+      },
+      "notes": "Traps: not Sydney, not Rio, not Almaty, not Abidjan (de facto), not Yangon."
+    }
+  }
+}

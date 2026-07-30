@@ -1,0 +1,50 @@
+{
+  "phase": "p02_math_basic",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "Calculate: 17 * 23 + 45 - 12. Show your work.",
+  "timestamp": "2026-07-27T18:04:22.031709+00:00",
+  "result": {
+    "ok": true,
+    "content": "Here is the step-by-step work:\n\n**17 × 23 + 45 − 12**\n\n**Step 1: Perform multiplication first**\n17 × 23 = 391\n\n**Step 2: Perform addition**\n391 + 45 = 436\n\n**Step 3: Perform subtraction**\n436 − 12 = **424**\n\n**Final Answer: 424**",
+    "reasoning": "The user wants me to calculate 17 * 23 + 45 - 12 and show my work. I need to follow the order of operations (PEMDAS/BODMAS): multiplication first, then addition and subtraction from left to right.\n\nStep 1: 17 * 23\n17 * 23 = 17 * 20 + 17 * 3 = 340 + 51 = 391\n\nStep 2: 391 + 45 = 436\n\nStep 3: 436 - 12 = 424",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 42,
+      "completion_tokens": 250,
+      "total_tokens": 292,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 79,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 2.94,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785175459-gZXviL0BHqQVO82dZxEh"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Basic arithmetic with work shown",
+      "category": "Math",
+      "expected": {
+        "correct_answer": 424
+      },
+      "notes": "17*23=391; 391+45=436; 436-12=424"
+    }
+  }
+}

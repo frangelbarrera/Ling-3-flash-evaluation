@@ -1,0 +1,51 @@
+{
+  "phase": "p10c_pci_dss",
+  "model_label": "ling",
+  "model_id": "inclusionai/ling-3.0-flash:free",
+  "prompt": "What is PCI-DSS? Name 3 of its 12 requirements.",
+  "timestamp": "2026-07-27T19:55:50.137492+00:00",
+  "result": {
+    "ok": true,
+    "content": "**PCI-DSS** stands for **Payment Card Industry Data Security Standard**. It is a set of security standards designed to ensure that organizations that handle credit card information maintain a secure environment. It applies to any entity that stores, processes, or transmits cardholder data.\n\n**Three of its 12 requirements:**\n\n1. **Install and maintain a firewall configuration** to protect cardholder data.\n2. **Protect stored cardholder data** (e.g., encrypt it when stored).\n3. **Encrypt transmission of cardholder data** across open, public networks.",
+    "reasoning": "The user is asking about PCI-DSS (Payment Card Industry Data Security Standard) and wants me to name 3 of its 12 requirements. Let me recall what I know about PCI-DSS.\n\nPCI-DSS stands for Payment Card Industry Data Security Standard. It is a set of security standards designed to ensure that all companies that accept, process, store, or transmit credit card information maintain a secure environment. It was created by major credit card companies (Visa, MasterCard, American Express, Discover, and JCB).\n\nThe 12 requirements are organized into 6 goals:\n\n1. Build and maintain a secure network and systems\n   - Requirement 1: Install and maintain a firewall configuration to protect cardholder data\n   - Requirement 2: Do not use vendor-supplied defaults for system passwords and other security parameters\n\n2. Protect cardholder data\n   - Requirement 3: Protect stored cardholder data\n   - Requirement 4: Encrypt transmission of cardholder data across open, public networks\n\n3. Maintain a vulnerability management program\n   - Requirement 5: Protect all systems and networks from malicious software\n   - Requirement 6: Develop and maintain secure systems and applications\n\n4. Implement strong access control measures\n   - Requirement 7: Restrict access to cardholder data by business need to know\n   - Requirement 8: Identify and authenticate access to system components\n   - Requirement 9: Restrict physical access to cardholder data\n\n5. Regularly monitor and test networks\n   - Requirement 10: Track and monitor all access to network resources and cardholder data\n   - Requirement 11: Regularly test security systems and processes\n\n6. Maintain an information security policy\n   - Requirement 12: Maintain a policy that addresses information security for all personnel\n\nI'll provide a clear, concise answer naming PCI-DSS and listing 3 of the 12 requirements.\\",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 36,
+      "completion_tokens": 523,
+      "total_tokens": 559,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 473,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 2.06,
+    "error": null,
+    "model_returned": "inclusionai/ling-3.0-flash:free",
+    "raw_id": "gen-1785182148-fgT5O0YPJQjOuUWGt1XB"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "PCI-DSS: 3 of 12 requirements",
+      "category": "Finance/Compliance",
+      "expected": {
+        "defines_pci_dss": true,
+        "lists_3_requirements": true
+      },
+      "notes": ""
+    }
+  }
+}

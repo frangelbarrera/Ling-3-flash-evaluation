@@ -1,0 +1,31 @@
+{
+  "phase": "p06_python_lis",
+  "model_label": "gpt_oss",
+  "model_id": "openai/gpt-oss-20b:free",
+  "prompt": "Write a Python function `longest_increasing_subsequence(nums: list[int]) -> list[int]` that returns the longest strictly increasing subsequence of `nums`. Use type hints, include a docstring, and provide at least 2 test cases with assertions. Aim for O(n log n) if possible.",
+  "timestamp": "2026-07-27T18:22:35.480381+00:00",
+  "result": {
+    "ok": false,
+    "content": "",
+    "reasoning": "",
+    "finish_reason": null,
+    "usage": {},
+    "elapsed_s": 0,
+    "error": "429 rate_limited key#1",
+    "model_returned": null,
+    "raw_id": null
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Python: longest increasing subsequence with type hints",
+      "category": "Coding",
+      "expected": {
+        "compiles": true,
+        "correct_on_examples": true,
+        "has_type_hints": true,
+        "has_docstring": true
+      },
+      "notes": "Original report said this produced 0 chars."
+    }
+  }
+}

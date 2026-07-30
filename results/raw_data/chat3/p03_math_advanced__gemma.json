@@ -1,0 +1,50 @@
+{
+  "phase": "p03_math_advanced",
+  "model_label": "gemma",
+  "model_id": "google/gemma-4-26b-a4b-it:free",
+  "prompt": "A train travels 240 km in 4 hours. If it increases its speed by 20 km/h, how long will it take to travel the same 240 km? Show all work.",
+  "timestamp": "2026-07-27T18:05:57.814180+00:00",
+  "result": {
+    "ok": true,
+    "content": "To find the new travel time, we need to follow three steps: find the original speed, calculate the new speed, and then calculate the new time.\n\n### Step 1: Find the original speed\nSpeed is calculated using the formula:\n$$\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}}$$\n\nGiven:\n*   Distance = $240\\text{ km}$\n*   Time = $4\\text{ hours}$\n\n$$\\text{Original Speed} = \\frac{240\\text{ km}}{4\\text{ hours}} = 60\\text{ km/h}$$\n\n### Step 2: Find the new speed\nThe problem states that the train increases its speed by $20\\text{ km/h}$.\n\n$$\\text{New Speed} = \\text{Original Speed} + 20\\text{ km/h}$$\n$$\\text{New Speed} = 60\\text{ km/h} + 20\\text{ km/h} = 80\\text{ km/h}$$\n\n### Step 3: Find the new time\nTo find the time required to travel the same distance at the new speed, we use the formula:\n$$\\text{Time} = \\frac{\\text{Distance}}{\\text{Speed}}$$\n\nGiven:\n*   Distance = $240\\text{ km}$\n*   New Speed = $80\\text{ km/h}$\n\n$$\\text{New Time} = \\frac{240\\text{ km}}{80\\text{ km/h}} = 3\\text{ hours}$$\n\n**Answer:**\nIt will take the train **3 hours** to travel the same distance.",
+    "reasoning": "",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 58,
+      "completion_tokens": 367,
+      "total_tokens": 425,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 6.2295e-05,
+        "upstream_inference_prompt_cost": 1.74e-06,
+        "upstream_inference_completions_cost": 6.0555e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_s": 28.4,
+    "error": null,
+    "model_returned": "google/gemma-4-26b-a4b-it:free",
+    "raw_id": "gen-1785175529-tfggJxtCcxt9LjPcn3VC"
+  },
+  "extra": {
+    "phase_meta": {
+      "title": "Train speed word problem",
+      "category": "Math",
+      "expected": {
+        "correct_answer_hours": 3.0
+      },
+      "notes": "Original speed=60 km/h, new speed=80 km/h, 240/80=3 hours"
+    }
+  }
+}
