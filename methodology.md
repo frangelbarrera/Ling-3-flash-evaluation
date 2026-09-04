@@ -7,7 +7,7 @@ The published evaluation records were collected through the OpenRouter API. The 
 ```
 Endpoint: https://openrouter.ai/api/v1/chat/completions
 Model: inclusionai/ling-3.0-flash:free
-Provider observed: Novita
+Upstream provider routing: Not consistently documented in the published records
 API Keys: OpenRouter free-tier keys
 ```
 
@@ -104,8 +104,8 @@ This evaluation was conducted across 3 independent sessions:
 
 
 1. **Rate limiting:** OpenRouter free-tier rate limits applied. Some tests could not be completed due to rate limits (see Phase 8 confound disclosure in README).
-2. **Sample size:** 5-288 entries per phase (see README Test Coverage table). Small samples yield wide confidence intervals (see Wilson CIs in README Top 5 Strengths table). Results are directional findings and behaviour characterizations, not definitive benchmarks.
-3. **API proxy:** OpenRouter acts as a proxy (provider: Novita). Latency measurements include proxy overhead.
+2. **Sample size:** 5-288 entries per phase (see README Test Coverage table). Small samples yield wide confidence intervals (see Wilson CIs in README Headline Strengths table). Results are directional findings and behaviour characterizations, not definitive benchmarks.
+3. **API proxy:** OpenRouter is the documented API route. Latency measurements include proxy overhead; the upstream provider is not consistently documented in the published records.
 4. **Model version:** The `:free` suffix on OpenRouter may point to a different quantization than the paid version.
 5. **No local inference:** All tests were API-based. No local model weights were tested.
 6. **Reasoning visibility:** The `reasoning` field is visible in OpenRouter API responses. This may not be available via direct API access from Ant Group.

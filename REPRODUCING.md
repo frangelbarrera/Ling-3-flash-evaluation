@@ -176,7 +176,7 @@ The charts in `assets/` were generated from the JSONL data. To regenerate them:
 # Source: v6_phase_long_context.jsonl
 
 # Chart 5: test_coverage_pie.png
-# Source: README test coverage table (845 entries by phase)
+# Source: README test coverage table (845 valid JSONL records by phase)
 ```
 
 ## Schema notes

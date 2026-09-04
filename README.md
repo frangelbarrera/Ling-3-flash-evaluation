@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Model: Ling-3.0-flash](https://img.shields.io/badge/Model-Ling--3.0--flash-blue.svg)](https://openrouter.ai/inclusionai/ling-3.0-flash:free)
-[![Tests: 845](https://img.shields.io/badge/Tests-845-brightgreen.svg)](results/)
+[![Records: 845](https://img.shields.io/badge/Records-845-brightgreen.svg)](results/)
 [![Score: 7.0/10](https://img.shields.io/badge/Score-7.0/10-blue.svg)](analysis/CONSOLIDATED_ANALYSIS.md)
 [![Status: v6 FINAL](https://img.shields.io/badge/Version-v6_FINAL-red.svg)](analysis/CONSOLIDATED_ANALYSIS.md)
 [![Phases: 12](https://img.shields.io/badge/Phases-12-purple.svg)](methodology.md)
@@ -31,7 +31,7 @@ Raw data was processed at scale, with particular attention to long-context satur
 
 **This is NOT:**
 - A **definitive benchmark** comparable to MMLU/GSM8K/HumanEval leaderboards. The benchmark items are author-authored subsets in the *style* of MMLU/GPQA/BBH, not the official datasets. Sample sizes (MMLU 25q, GPQA 10q, AIME 5p) are intentionally small for exploratory directional testing.
-- A **statistically powered evaluation** in the academic sense. With n=5-50 per subcategory, 95% confidence intervals are wide (see Top 5 Strengths table above). The findings reveal consistent *patterns* of behavior, not precise *rates*.
+- A **statistically powered evaluation** in the academic sense. With n=5-50 per subcategory, selected Wilson 95% confidence intervals are wide (see the Headline Strengths table above). These intervals express uncertainty in the documented samples and are not statistical guarantees. The findings reveal consistent *patterns* of behavior, not precise *rates*.
 - A **comprehensive capability assessment**. Multimodal, SWE-bench, self-correction, and 1M-context were NOT tested (see §Limitations).
 
 > **Comparison to academic precedent:** Independent red-team research (JailbreakBench 100+100, Anthropic jailbreak studies ~100 prompts, HarmBench 400, AdvBench 520) typically uses 50-500 adversarial prompts per attack class. This repo's 20 jailbreak prompts and 10 indirect-injection tests are on the low end of that range but within published norms for independent testing. Phase 1 (288 entries with a controlled parameter sweep) provides a characterization of the tested configurations and should not be generalized beyond them.
@@ -121,7 +121,7 @@ The Ling-3.0-flash model card describes the context window as "256K". The API re
 | Hallucination | 8.0 | Real Q: 0%, Trap Q: 4-16% (1-4/25) |
 | Variance | 10.0 | 100% deterministic in non-thinking mode (5×10 runs, std=0) |
 | Edge cases | 9.5 | 19/20 success, only empty input fails |
-| Cost-efficiency | 9.0 | Free on OpenRouter (until Aug 3, 2026) |
+| Cost-efficiency | 9.0 | Historical access/pricing context from the archived run; not a model-quality measure |
 | Documentation | 3.0 | No arXiv, no public weights, no vendor benchmarks |
 | **Overall** | **7.0** | **Promising — see Critical Findings before production use** |
 
@@ -369,7 +369,7 @@ In 10/10 scenarios where malicious instructions were embedded in tool output (se
 | Rate limit | OpenRouter free-tier limits |
 | Published records | 845 valid JSONL records across 12 documented phases |
 | Logging format | JSONL (one entry per request) |
-| Reproducibility | `seed=42`, `temperature=0` for v6 JSONL tests (845 entries); `seed=42`, `temperature=0.3` for earlier chat1/chat3 tests (98 JSON files) |
+| Reproducibility | `seed=42`, `temperature=0` for v6 JSONL tests; earlier chat1/chat3 artifacts use `temperature=0.3` and different schemas |
 
 ### Verification protocol
 
@@ -405,9 +405,9 @@ Ling-3/
 │   ├── scorecard_radar.png                # 13-dimension scorecard radar
 │   ├── cross_model_comparison.png         # Cross-model r_tk efficiency
 │   ├── long_context_accuracy.png          # Needle-in-the-haystack accuracy
-│   └── test_coverage_pie.png              # 845 entries by phase
+│   └── test_coverage_pie.png              # 845 valid JSONL records by phase
 ├── analysis/
-│   └── CONSOLIDATED_ANALYSIS.md           # Consolidated technical analysis (845 entries)
+│   └── CONSOLIDATED_ANALYSIS.md           # Consolidated technical analysis (845 valid JSONL records)
 ├── results/
 │   ├── summary.md                         # Aggregated scorecard
 │   └── raw_data/                          # 200+ JSON files with raw API responses
@@ -417,7 +417,7 @@ Ling-3/
 │   └── all_prompts.md                     # All prompts used
 ├── raw_data/                              # Curated raw data archives
 │   ├── ling3_v3/                        # v6 raw data (consolidated JSONL logs + prompts + reports)
-│   │   ├── logs/                         # 12 JSONL files (845 entries total)
+│   │   ├── logs/                         # 12 JSONL files (845 valid JSONL records total)
 │   │   ├── prompts/                      # 9 phase prompt files
 │   │   ├── README.md                     # v3 package README
 │   │   ├── v6_README.md                  # v6 round README
@@ -549,5 +549,4 @@ MIT — see [LICENSE](LICENSE).
 
 - **Ant Group / inclusionAI** for developing Ling-3.0-flash and providing free API access
 - **OpenRouter** for API infrastructure
-- **Novita AI** as the provider observed in archived OpenRouter metadata
 - The evaluation was conducted independently. The published totals are based on 845 valid JSONL records; retry semantics are not documented consistently.

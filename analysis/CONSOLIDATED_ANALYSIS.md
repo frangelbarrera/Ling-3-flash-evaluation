@@ -27,7 +27,7 @@ This document consolidates the technical analysis of Ling-3.0-flash, a 124B-para
 | Hallucination | 8/10 | 0% on real questions, 16% on trap questions (manual re-grade) |
 | Variance | 10/10 | 100% deterministic in non-thinking mode (5 prompts × 10 runs, std=0) |
 | Edge cases | 9.5/10 | 19/20 handled gracefully (1 input-format error on empty input) |
-| Cost-efficiency | 9/10 | Free on OpenRouter |
+| Cost-efficiency | 9/10 | Historical access/pricing context from the archived run; not a model-quality measure |
 | Documentation | 3/10 | No arXiv paper, no public weights (HuggingFace HTTP 401) |
 | **Overall** | **7.0/10** | Promising in the recorded tool-calling and long-context cases; conditional for multi-turn coding |
 
@@ -52,13 +52,13 @@ This document consolidates the technical analysis of Ling-3.0-flash, a 124B-para
 4. **Multi-needle conflict bias** — Ling always picks the first needle (22/22), never detects contradictions between needles.
 5. **Email PII redaction** — Ling silently masks local-parts of emails in tool-call arguments (3/10 in Test 1.3), which can break downstream tools.
 
-### Top 5 Strengths
+### Headline Strengths
 
 1. **Excellent MCQ accuracy** — 100% on MMLU+GPQA 35-question subset.
 2. **Honest self-identification** — Ling identifies as "Ling by Ant Group" (vs. GPT-OSS which falsely claims to be GPT-4).
 3. **Multilingual technical capability** — 5/5 languages with zero mixing and correct technical terminology.
 4. **Tool-calling schema-respecting** — 0/10 invented parameters when using the `tools` parameter on OpenRouter.
-5. **Free on OpenRouter** — Zero cost during the evaluation period.
+5. **Historical access context** — The archived run used a free OpenRouter route; availability and pricing were time-dependent and are not evaluation results.
 
 ---
 
@@ -355,7 +355,7 @@ The model's multilingual capability is **better than Ant Group admits** — zero
 
 ### Models Tested
 
-| Model | Parameters | Reasoning model? | Free on OpenRouter? |
+| Model | Parameters | Reasoning model? | Free route in archived run? |
 |-------|-----------|:----------------:|:-------------------:|
 | Ling-3.0-flash | 124B MoE (5.1B active) | Yes | Yes |
 | GPT-OSS-20b | 20B | Yes | Yes |
