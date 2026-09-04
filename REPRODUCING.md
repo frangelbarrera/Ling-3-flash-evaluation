@@ -6,13 +6,13 @@ This guide explains how to validate the 845 published JSONL records offline and,
 
 ### 1. Get an OpenRouter API key
 
-Ling-3.0-flash is available for free on OpenRouter (until Aug 3, 2026):
+The archived run used the OpenRouter route documented below. Provider availability and pricing were time-dependent and are not evaluation results:
 
 1. Sign up at [openrouter.ai](https://openrouter.ai/)
 2. Generate an API key in Settings → Keys
 3. The free tier allows 50 requests/day per key
 
-The free tier is rate-limited per key. For re-running individual phases, one key is generally sufficient; for the full 845-call evaluation, plan around the daily per-key quota.
+The free tier is rate-limited per key. For re-running individual phases, one key is generally sufficient; reproducing the full published 845-record corpus would require planning around the daily per-key quota.
 
 ### 2. Install Python dependencies
 
@@ -238,16 +238,16 @@ The `results/raw_data/chat1/` and `results/raw_data/chat3/` directories contain 
 ## Cost estimate
 
 At OpenRouter's free tier (rate-limited per key per day):
-- 845 calls total across 12 phases
+- 845 valid JSONL records across 12 documented phases; this is not asserted to be a unique-request or billed-call count
 - Plan around the daily per-key quota when re-running the full evaluation
 
-If you exceed the free tier, paid pricing is approximately $0.07/M input tokens and $0.28/M output tokens. The full 845-call evaluation used ~3M input + ~2M output tokens total, so paid cost would be ~$0.77.
+If you exceed the free tier, paid pricing is approximately $0.07/M input tokens and $0.28/M output tokens. The published corpus is documented as approximately ~3M input + ~2M output tokens in total; this historical estimate is not a claim about unique requests or future reproduction cost.
 
 ## Troubleshooting
 
 ### HTTP 429 rate limited
 
-OpenRouter's free tier is aggressively rate-limited. The scripts handle this with key rotation and 60-second cooldowns, but you may still see 429s. Strategies:
+OpenRouter's free tier is aggressively rate-limited. The scripts use bounded retries, timeouts, backoff, and the documented key-rotation mechanism, but you may still see 429s. Strategies:
 - Use more API keys (set `OPENROUTER_API_KEYS` with comma-separated values)
 - Wait between phase runs
 - Reduce `max_tokens` (faster responses, fewer tokens consumed)

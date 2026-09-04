@@ -10,7 +10,7 @@
 
 ## 0. Executive Summary
 
-This document consolidates the technical analysis of Ling-3.0-flash, a 124B-parameter Mixture-of-Experts model (5.1B active per token) released by Ant Group / inclusionAI on July 23, 2026. The evaluation covers 845 API calls across 12 test phases spanning reasoning, benchmarks, security, coding, multilingual capability, tool calling, long context, and multi-turn stability.
+This document consolidates the technical analysis of Ling-3.0-flash, a 124B-parameter Mixture-of-Experts model (5.1B active per token) released by Ant Group / inclusionAI on July 23, 2026. The evaluation covers 845 valid JSONL records across 12 documented phases spanning reasoning, benchmarks, security, coding, multilingual capability, tool calling, long context, and multi-turn stability.
 
 ### Headline Results
 
@@ -990,7 +990,7 @@ Note: The score dropped from 7.8 to 7.6 because v6 revealed issues that v5 could
 
 ### Executive Summary (v6-focused)
 
-1. **Tool calling performed well in the recorded sample.** All 45 valid tests in sub-tests 1.1–1.4 + 1.6 succeeded (100%). Ling emits the correct tool, parses nested JSON schemas cleanly, respects `tool_choice=required`, and — most importantly — does NOT invent parameters when the user mentions fields that aren't in the schema (0/10 hallucinated, vs v2 PowerShell where Ling invented `Owner`/`ApplyTo`). This is the single biggest win of v6.
+1. **Tool calling performed well in the recorded sample.** All 45 recorded valid-schema cases in sub-tests 1.1–1.4 + 1.6 succeeded in the documented sample (100%). Ling emits the correct tool, parses nested JSON schemas cleanly, respects `tool_choice=required`, and — most importantly — does NOT invent parameters when the user mentions fields that aren't in the schema (0/10 hallucinated, vs v2 PowerShell where Ling invented `Owner`/`ApplyTo`). This is the single biggest win of v6.
 
 2. **Error recovery (Test 1.5) shows good refusal behavior, not a bug.** 4 of 5 scenarios "failed" in turn 1 because Ling refused to call the tool with invalid arguments (XYZ currency, AAA/BBB currency, invalid date 2026-13-45) or asked for a missing required parameter (date). Only 1/5 scenarios completed 3 turns (scenario 5: USD→USD then USD→EUR). The v6 report's "4/5 failed due to GOOD behavior" framing is accurate.
 

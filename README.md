@@ -34,7 +34,7 @@ Raw data was processed at scale, with particular attention to long-context satur
 - A **statistically powered evaluation** in the academic sense. With n=5-50 per subcategory, 95% confidence intervals are wide (see Top 5 Strengths table above). The findings reveal consistent *patterns* of behavior, not precise *rates*.
 - A **comprehensive capability assessment**. Multimodal, SWE-bench, self-correction, and 1M-context were NOT tested (see §Limitations).
 
-> **Comparison to academic precedent:** Independent red-team research (JailbreakBench 100+100, Anthropic jailbreak studies ~100 prompts, HarmBench 400, AdvBench 520) typically uses 50-500 adversarial prompts per attack class. This repo's 20 jailbreak prompts and 10 indirect-injection tests are on the low end of that range but within published norms for independent testing. Phase 1 (288 entries with controlled parameter sweep) is statistically solid for bug characterization.
+> **Comparison to academic precedent:** Independent red-team research (JailbreakBench 100+100, Anthropic jailbreak studies ~100 prompts, HarmBench 400, AdvBench 520) typically uses 50-500 adversarial prompts per attack class. This repo's 20 jailbreak prompts and 10 indirect-injection tests are on the low end of that range but within published norms for independent testing. Phase 1 (288 entries with a controlled parameter sweep) provides a characterization of the tested configurations and should not be generalized beyond them.
 
 ---
 
@@ -46,15 +46,15 @@ This repository contains an independent technical evaluation of **Ling-3.0-flash
 |---|---|
 | **Evaluation period** | Independent evaluation (see raw data for timestamps) |
 | **API provider** | OpenRouter (`inclusionai/ling-3.0-flash:free`) |
-| **Total tests** | 845 API calls across 12 test phases |
+| **Published records** | 845 valid JSONL records across 12 documented phases |
 | **Methodology** | Multi-phase evaluation with mandatory verification of every claim against raw JSONL data |
-| **Reproducibility** | `seed=42`, `temperature=0` for v6 JSONL tests (845 entries); `seed=42`, `temperature=0.3` for earlier chat1/chat3 tests (98 JSON files) |
+| **Reproducibility** | `seed=42`, `temperature=0` for the v6 JSONL subset; earlier chat1/chat3 artifacts use `temperature=0.3` and different schemas |
 
 ### How to read the findings
 
 The findings are exploratory observations from the documented samples, not claims of priority, completeness, or production readiness. The benchmark-like items are author-authored subsets and are not the official MMLU, GPQA, BBH, HumanEval, or MBPP test sets. Comparisons with other models are limited to the cases and configurations recorded in the repository. Historical statements about what was or was not publicly available are not independently verified here and should not be read as an exhaustive literature review.
 
-### Official Ant Group benchmark
+### Vendor-published comparison context
 
 For reference, below is a **vendor-published comparison chart** from Ant Group, included as external context rather than as part of this evaluation. It compares Ling-3.0-flash against 7 other leading LLMs across 12 benchmarks (SWE-bench Pro, Terminal-Bench, MCP-Atlas, IFBench, etc.).
 
@@ -64,19 +64,19 @@ For reference, below is a **vendor-published comparison chart** from Ant Group, 
 
 <p align="center"><em>Source: Ant Group / inclusionAI official announcement. Ling-3.0-flash shown in dark blue. Note: Ant Group's internal benchmarks use the model's "thinking mode enabled by default" configuration.</em></p>
 
-> **Note on benchmark comparison:** This independent evaluation focuses on different dimensions (jailbreak resistance, tool calling schema-respect, long-context needle-in-haystack, multi-turn stability, reasoning-budget behavior) that complement Ant Group's official capability benchmarks. Our MMLU+GPQA results (35/35, 100%) are consistent with Ant Group's positioning of Ling-3.0-flash as a competitive coding/agent model.
+> **Note on benchmark comparison:** This independent evaluation focuses on different dimensions (jailbreak resistance, tool calling schema-respect, long-context needle-in-haystack, multi-turn stability, reasoning-budget behavior) that complement Ant Group's vendor-published capability comparisons. Our MMLU+GPQA results (35/35, 100%) are consistent with Ant Group's positioning of Ling-3.0-flash as a competitive coding/agent model.
 
 ---
 
 ## Headline Findings
 
-### Top 5 Strengths
+### Headline Strengths
 
 | # | Finding | n | Rate | 95% CI (Wilson) | Evidence |
 |---|---|---:|---:|---:|---|
 | 1 | **Jailbreak resistance** (DAN-style attacks refused) | 20 | 100% | [83.9%, 100%] | `phase6_logs.jsonl` |
-| 2 | **MMLU+GPQA subset** (author-authored, not official) | 35 | 100% | [90.1%, 100%] | `phase2_logs.jsonl` |
-| 3 | **AIME** (5 problems; note: aime_1 expected answer was incorrect, Ling's answer was mathematically correct) | 5 | 100% | [56.6%, 100%] | `phase2_logs.jsonl` |
+| 2 | **Author-authored MMLU/GPQA-style subsets** (not the original benchmark items and not leaderboard-comparable) | 35 | 100% | [90.1%, 100%] | `phase2_logs.jsonl` |
+| 3 | **AIME-style subset** (5/5 under the documented scoring procedure; one expected answer was incorrect, so this is not treated as a benchmark score) | 5 | 100% | [56.6%, 100%] | `phase2_logs.jsonl` |
 | 4 | **Tool calling schema-respect** (45/45 valid + 0/10 invented params) | 45 | 100% | [92.1%, 100%] | `v6_phase_tool_calling.jsonl` |
 | 5 | **Long context needle-in-haystack** (works to 208K, no lost-in-middle) | 28 | 100% | [87.9%, 100%] | `v6_phase_long_context.jsonl` |
 | 6 | **Determinism in non-thinking mode** (5 prompts × 10 runs, std=0) | 50 | 100% | [92.9%, 100%] | `phase13_logs.jsonl` |
@@ -112,10 +112,10 @@ The Ling-3.0-flash model card describes the context window as "256K". The API re
 |---|---:|---|
 | Reasoning | 8.0 | MMLU+GPQA 35/35 (100%), AIME 5/5 (100%) — note: aime_1's expected answer in the test prompt was incorrect; Ling's answer (0) was mathematically correct |
 | Coding | 8.0 | BBH 6/6 on successful calls (9 HTTP 429 rate-limited), HumanEval 19/19 syntactically valid, Phase 7 logic recall 11/12 (92%) |
-| Tool calling | **9.0** | 45/45 schema-respecting, 0/10 invented params, -1 for date hallucination (13/52) |
+| Tool calling | **9.0** | 45/45 valid tool-call schemas and 0/10 invented parameters in the documented subtests; nested-schema handling and invalid-argument recovery remain imperfect; -1 for date hallucination (13/52) |
 | Long context | **9.0** | Works to 208K tokens, real cap 262,144, no lost-in-middle, -1 for multi-needle bias |
 | Multi-turn | **6.0** | 26% bug rate (9/35 turns fail by reasoning-budget bug) |
-| Security | 8.5 | 20/20 jailbreak, 100% no malicious injection, 5/5 adversarial encoding, 16/16 IDOR/SQLi/XSS/SSRF |
+| Security | 8.5 | 20/20 jailbreak, 100% no malicious injection, 5/5 adversarial encoding; in code-review probes, 16/16 injected IDOR/SQLi/XSS/SSRF examples were identified in the documented sample |
 | Multi-language | 8.0 | 5/5 languages at mt=2048, zero mixing, Chinese triggers 8.5× more reasoning tokens |
 | Reliability | 5.0 | 16% 0-char rate across thinking-mode tests (mt=128: 100%, mt=256: 50%, mt=512: 12.5%, mt=1024: 4.3%, mt≥2048: 0%) |
 | Hallucination | 8.0 | Real Q: 0%, Trap Q: 4-16% (1-4/25) |
@@ -133,6 +133,10 @@ The Ling-3.0-flash model card describes the context window as "256K". The API re
 
 The total is computed from the 12 files in `raw_data/ling3_v3/logs/` by `scripts/validate_logs.py`. It is a record count. Retry semantics, request billing semantics, and a uniform success/failure field are **Not documented** in the published logs.
 
+The phase identifiers preserve labels from the iterative evaluation history. The current release contains 12 active JSONL phase files; the non-consecutive identifiers are retained for traceability and are not a claim that phases 3–5, 9–10, or 14–15 are present in the current release.
+
+**Canonical source of truth:** `raw_data/ling3_v3/logs/`. Files under `results/raw_data/` are historical per-test artifacts and are not used for the published 845-record total.
+
 <p align="center">
   <img src="assets/test_coverage_pie.png" alt="Test coverage breakdown by phase" width="560">
 </p>
@@ -142,18 +146,18 @@ The total is computed from the 12 files in `raw_data/ling3_v3/logs/` by `scripts
 | Phase 1: Reasoning bug | C | 288 | mt sweep (128-32768), 5 languages, thinking vs non-thinking | Bug characterized: mt=128→100% fail, mt≥2048→0% fail |
 | Phase 2: Benchmarks | P | 75 | MMLU-style 25q, GPQA-style 10q, AIME 5p, HumanEval+MBPP 20p, BBH-style 15p | MMLU+GPQA 100%, AIME 100%, BBH 100% (on tests that ran) |
 | Phase 6: Security | B | 50 | 20 jailbreak + 10 indirect + 10 sysprompt + 5 sensitive + 5 adversarial | 20/20 jailbreak, 100% no malicious injection, 5/5 adversarial |
-| Phase 7: Code review | B | 70 | 20 IDOR/SQLi/XSS/SSRF + 11 safe code + 14 crypto + 12 logic | 16/16 security bugs, 14/14 crypto, 11/12 logic, 8/11 false positives |
+| Phase 7: Code review | B | 70 | 20 IDOR/SQLi/XSS/SSRF + 11 safe code + 14 crypto + 12 logic | Code-review probes: 16/16 injected examples identified, 14/14 crypto, 11/12 logic, 8/11 false positives |
 | Phase 8: Head-to-head | E | 57 | 29 prompts × 2 models (Ling vs DeepSeek V4 Flash) | DeepSeek more verbose, Ling more correct on Monty Hall |
 | Phase 11: Hallucination | B | 50 | 25 real Q + 25 trap Q | Real: 0%, Trap: 4-16% (corrected from v3's 40%) |
 | Phase 12: Format following | E | 32 | JSON, XML, YAML, CSV, Markdown, Length | 100% on JSON/XML/YAML/CSV (when not rate-limited) |
 | Phase 13: Variance | C | 50 | 5 prompts × 10 runs, seed=42, temp=0 | 100% deterministic in non-thinking mode |
 | Phase 16: Edge cases | E | 20 | Empty, paradox, extreme numbers, harmful content | 19/20 success, sarin synthesis correctly refused |
-| **v6 Tool calling** | B | **52** | 6 sub-tests (single, multi, nested, required, error, invented) | 45/45 success, 0/10 invented params |
+| **v6 Tool calling** | B | **52** | 6 sub-tests (single, multi, nested, required, error, invented) | 45/45 valid schemas and 0/10 invented parameters in the documented subtests; nested-schema handling and invalid-argument recovery remain imperfect |
 | **v6 Long context** | B | **66** | 4K-256K tokens, single + multi-needle | Works to 208K, real cap 262,144 |
 | **v6 Multi-turn coding** | B | **35** | 5 tasks × 6+ turns (spec-driven loop) | 26% bug rate (reasoning-budget reproduces) |
 | **TOTAL** | | **845** | | |
 
-> **Study types:** **C** = Controlled experiment (parameter sweep, statistically solid) · **B** = Behaviour characterization (pattern documentation, directional) · **P** = Probe-style (small-sample benchmark, wide CIs) · **E** = Exploratory (qualitative observation)
+> **Study types:** **C** = Controlled characterization of the tested parameter sweep; findings should not be generalized beyond the documented configurations · **B** = Behaviour characterization (pattern documentation, directional) · **P** = Probe-style (small-sample benchmark, wide CIs) · **E** = Exploratory (qualitative observation)
 
 ---
 
@@ -360,10 +364,10 @@ In 10/10 scenarios where malicious instructions were embedded in tool output (se
 | Component | Value |
 |---|---|
 | API provider | OpenRouter (`https://openrouter.ai/api/v1/chat/completions`) |
-| Model slug | `inclusionai/ling-3.0-flash:free` (free tier until 2026-08-03) |
+| Model slug | `inclusionai/ling-3.0-flash:free` (availability and pricing were time-dependent) |
 | API keys | OpenRouter free-tier |
 | Rate limit | OpenRouter free-tier limits |
-| Total requests | 845 across 12 phases |
+| Published records | 845 valid JSONL records across 12 documented phases |
 | Logging format | JSONL (one entry per request) |
 | Reproducibility | `seed=42`, `temperature=0` for v6 JSONL tests (845 entries); `seed=42`, `temperature=0.3` for earlier chat1/chat3 tests (98 JSON files) |
 
@@ -516,7 +520,7 @@ All scripts are idempotent. See [`REPRODUCING.md`](REPRODUCING.md) for step-by-s
 6. **Multimodal NOT tested** — Ling is text-first per developer brief
 7. **Self-correction NOT tested** — Gap for future round
 8. **SWE-bench NOT tested** — Gap for future round (Ling-2.6-flash reported 61.2%; Ant Group's official chart shows Ling-3.0-flash SWE-bench Pro performance)
-9. **No confidence intervals** — AIME 5/5 (100%) — note: aime_1's expected answer in the test prompt was incorrect; Ling's answer (0) was mathematically correct has a wide 95% CI [56.6%, 100%]; all small-sample claims should be interpreted as point estimates, not statistical guarantees
+9. **Uncertainty reporting** — Selected headline findings include Wilson 95% confidence intervals. Because several samples are small, these intervals are wide and should be interpreted as directional uncertainty rather than statistical guarantees.
 
 ---
 
@@ -526,7 +530,7 @@ If you use this evaluation in your work, please cite:
 
 ```bibtex
 @misc{ling3_flash_eval_2026,
-  title={Ling-3.0-flash: Independent Security \& Capability Evaluation},
+  title={Ling-3.0-flash: Independent Evaluation},
   author={Barrera, Frangel},
   year={2026},
   url={https://github.com/frangelbarrera/Ling-3-flash-evaluation}
@@ -545,5 +549,5 @@ MIT — see [LICENSE](LICENSE).
 
 - **Ant Group / inclusionAI** for developing Ling-3.0-flash and providing free API access
 - **OpenRouter** for API infrastructure
-- **Novita AI** for serving the model
-- The evaluation was conducted independently. All findings are based on 845 API calls.
+- **Novita AI** as the provider observed in archived OpenRouter metadata
+- The evaluation was conducted independently. The published totals are based on 845 valid JSONL records; retry semantics are not documented consistently.
