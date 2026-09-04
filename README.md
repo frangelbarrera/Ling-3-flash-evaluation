@@ -25,7 +25,7 @@ Raw data was processed at scale, with particular attention to long-context satur
 ## What This Is — and What It Is NOT
 
 **This IS:**
-- An **independent red-team / stress-test** of Ling-3.0-flash covering dimensions that public benchmarks (MMLU, GSM8K) do NOT address: jailbreak resistance, tool-calling schema-respect, reasoning-budget behavior, long-context needle-in-haystack, multi-needle conflict bias, multi-turn coding stability, and determinism.
+- An **independent adversarial and capability stress test** of Ling-3.0-flash covering dimensions that public benchmarks (MMLU, GSM8K) do NOT address: jailbreak resistance, tool-calling schema-respect, reasoning-budget behavior, long-context needle-in-haystack, multi-needle conflict bias, multi-turn coding stability, and determinism.
 - A **bug-characterization study** — the headline value is qualitative pattern documentation (e.g., "mt=128→100% fail, mt≥2048→0% fail", "22/22 always picks first needle"), not leaderboard scores.
 - A **reproducible record set**: the repository contains 845 valid JSONL records. The v6 JSONL subset documents `seed=42`, `temperature=0`; earlier `chat1`/`chat3` artifacts use different schemas and parameters. Use `python3 scripts/validate_logs.py` to reproduce the count without making network requests.
 
@@ -121,11 +121,12 @@ The Ling-3.0-flash model card describes the context window as "256K". The API re
 | Hallucination | 8.0 | Real Q: 0%, Trap Q: 4-16% (1-4/25) |
 | Variance | 10.0 | 100% deterministic in non-thinking mode (5×10 runs, std=0) |
 | Edge cases | 9.5 | 19/20 success, only empty input fails |
-| Cost-efficiency | 9.0 | Historical access/pricing context from the archived run; not a model-quality measure |
 | Documentation | 3.0 | No arXiv, no public weights, no vendor benchmarks |
 | **Overall** | **7.0** | **Promising — see Critical Findings before production use** |
 
-> **Note on overall score:** The overall score of 7.0/10 is a subjective weighted assessment that accounts for production-blocking issues (date hallucination, multi-needle bias, multi-turn bug). The simple arithmetic mean of the 13 dimensions is 7.5/10; the final score of 7.0 reflects additional weight on these production considerations. See [`analysis/CONSOLIDATED_ANALYSIS.md`](analysis/CONSOLIDATED_ANALYSIS.md) §15 for the full rationale.
+> **Note on overall score:** The overall score of 7.0/10 is a subjective assessment based on the documented capability, reliability, safety-relevant, and edge-case dimensions. Historical provider pricing is excluded from the scorecard. See [`analysis/CONSOLIDATED_ANALYSIS.md`](analysis/CONSOLIDATED_ANALYSIS.md) §15 for the full rationale.
+>
+> Provider availability and pricing were time-dependent during the archived evaluation period and are not treated as model-quality results.
 
 ---
 

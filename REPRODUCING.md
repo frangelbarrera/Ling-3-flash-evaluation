@@ -79,11 +79,11 @@ scores = {
     'Reasoning': 7.0, 'Coding': 7.0, 'Tool calling': 9.0,
     'Long context': 9.0, 'Multi-turn': 6.0, 'Security': 8.5,
     'Multi-language': 8.0, 'Reliability': 5.0, 'Hallucination': 8.0,
-    'Variance': 10.0, 'Edge cases': 9.5, 'Cost-efficiency': 9.0,
+    'Variance': 10.0, 'Edge cases': 9.5,
     'Documentation': 3.0,
 }
 simple_avg = sum(scores.values()) / len(scores)
-print(f'Simple average: {simple_avg:.4f} (rounds to {round(simple_avg, 1)})')
+print('Simple average is shown for the documented capability dimensions; historical provider pricing is excluded.')
 print(f'Final subjective score: 7.0 (production considerations weighted)')
 print(f'Difference: {simple_avg - 7.0:.2f} (weight on date hallucination, multi-needle bias, multi-turn bug)')
 "

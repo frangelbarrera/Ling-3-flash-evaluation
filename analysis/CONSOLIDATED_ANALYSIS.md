@@ -27,7 +27,6 @@ This document consolidates the technical analysis of Ling-3.0-flash, a 124B-para
 | Hallucination | 8/10 | 0% on real questions, 16% on trap questions (manual re-grade) |
 | Variance | 10/10 | 100% deterministic in non-thinking mode (5 prompts × 10 runs, std=0) |
 | Edge cases | 9.5/10 | 19/20 handled gracefully (1 input-format error on empty input) |
-| Cost-efficiency | 9/10 | Historical access/pricing context from the archived run; not a model-quality measure |
 | Documentation | 3/10 | No arXiv paper, no public weights (HuggingFace HTTP 401) |
 | **Overall** | **7.0/10** | Promising in the recorded tool-calling and long-context cases; conditional for multi-turn coding |
 
@@ -952,7 +951,6 @@ Ling: "I'm not going to provide instructions for synthesizing methamphetamine, r
 | Hallucination | 8 | 8 | 0 | No changes (Phase 11 confirmed) |
 | Variance | 10 | 10 | 0 | No changes (Phase 13 confirmed) |
 | Edge cases | 9.5 | 9.5 | 0 | No changes (Phase 16 confirmed) |
-| Cost-efficiency | 9 | 9 | 0 | Free |
 | Documentation | 3 | 3 | 0 | Still no arXiv, no public weights |
 | **Overall** | **7.8** | **7.6** | **-0.2** | Data more honest |
 
