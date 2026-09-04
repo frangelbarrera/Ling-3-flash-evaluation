@@ -2,7 +2,7 @@
 
 ## API Configuration
 
-All tests were conducted via the OpenRouter API using the following configuration:
+The published evaluation records were collected through the OpenRouter API. The following configuration is documented in the repository; missing per-record fields are not inferred:
 
 ```
 Endpoint: https://openrouter.ai/api/v1/chat/completions
@@ -21,6 +21,8 @@ API Keys: OpenRouter free-tier keys
 | `reasoning.effort` | not set (default) | Tested: low, minimal, medium |
 
 ## Evaluation Sessions
+
+The canonical count is 845 valid records in 12 JSONL files under `raw_data/ling3_v3/logs/`. The repository does not provide a uniform retry identifier or a consistent status field for every record. Therefore, the count is reported as records, not as unique cases, successful calls, or billed requests. Run `python3 scripts/validate_logs.py` to regenerate the count and phase/model/endpoint summaries offline.
 
 This evaluation was conducted across 3 independent sessions:
 
@@ -95,6 +97,11 @@ This evaluation was conducted across 3 independent sessions:
 ```
 
 ## Limitations
+
+- **Call reconciliation:** The logs identify phases and models, but endpoint presence is inconsistent across records and retry semantics are not documented uniformly.
+- **Protocol status:** The materials describe iterative, exploratory work; phases added after observing earlier results should be treated as post-hoc rather than blinded or preregistered.
+- **Privacy and retention:** Published prompts, responses, and reasoning-related fields require a separate privacy review before reuse or publication of new outputs. The offline validator does not inspect or transmit their contents.
+
 
 1. **Rate limiting:** OpenRouter free-tier rate limits applied. Some tests could not be completed due to rate limits (see Phase 8 confound disclosure in README).
 2. **Sample size:** 5-288 entries per phase (see README Test Coverage table). Small samples yield wide confidence intervals (see Wilson CIs in README Top 5 Strengths table). Results are directional findings and behaviour characterizations, not definitive benchmarks.

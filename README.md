@@ -1,6 +1,8 @@
-# Ling-3.0-flash: Independent Security & Capability Evaluation
+# Ling-3.0-flash Evaluation
 
-> The first independent, comprehensive evaluation of Ant Group's Ling-3.0-flash model — 845 API calls across 12 test phases, covering reasoning, coding, tool calling, long context, multi-turn stability, security, multilingual, hallucination, and edge cases.
+> Independent public evaluation of Ant Group's Ling-3.0-flash across 12 documented test phases. The repository contains 845 valid JSONL records across those phases; the published logs do not document retries consistently, so this figure is a record count rather than a claim about unique cases or billed requests.
+>
+> **Scope:** This is an independent public evaluation, not a vendor benchmark, certification, safety guarantee, or production-readiness assessment.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Model: Ling-3.0-flash](https://img.shields.io/badge/Model-Ling--3.0--flash-blue.svg)](https://openrouter.ai/inclusionai/ling-3.0-flash:free)
@@ -14,7 +16,7 @@
 
 ## About This Evaluation
 
-This is an independent, non-commercial research study of Ling-3.0-flash. The evaluation was structured across six iterative research phases with a standing protocol of mandatory verification against raw JSONL logs — no claim was retained unless it could be traced back to a recorded API entry. Every finding in this repository is reproducible from the raw API call logs in `raw_data/ling3_v3/logs/`.
+This is an independent, non-commercial research study of Ling-3.0-flash. The evaluation is represented by 12 documented JSONL phases. The repository describes iterative development and post-hoc analysis; it should not be interpreted as a blinded or preregistered protocol. Claims are intended to be traceable to recorded entries, but aggregation and interpretation remain subject to the limitations below. Every finding in this repository is reproducible from the raw API call logs in `raw_data/ling3_v3/logs/`.
 
 Raw data was processed at scale, with particular attention to long-context saturation tests where automated grading pipelines may, by the nature of the task, return results that do not reach 100% precision. The findings presented here are therefore offered as study-grade observations: rigorous and reproducible within the stated sample sizes, but not to be read as absolute measurements of model capability. Sample sizes for several headline benchmarks (MMLU 25q, GPQA 10q, AIME 5p) are intentionally small and should be interpreted as point estimates with correspondingly wide confidence intervals. The canonical source of truth for any claim is always the raw JSONL data in `raw_data/ling3_v3/logs/`, not the prose in this README or in the analysis documents.
 
@@ -25,7 +27,7 @@ Raw data was processed at scale, with particular attention to long-context satur
 **This IS:**
 - An **independent red-team / stress-test** of Ling-3.0-flash covering dimensions that public benchmarks (MMLU, GSM8K) do NOT address: jailbreak resistance, tool-calling schema-respect, reasoning-budget behavior, long-context needle-in-haystack, multi-needle conflict bias, multi-turn coding stability, and determinism.
 - A **bug-characterization study** — the headline value is qualitative pattern documentation (e.g., "mt=128→100% fail, mt≥2048→0% fail", "22/22 always picks first needle"), not leaderboard scores.
-- A **reproducible dataset**: all 845 API calls are published as JSONL with seed=42, temperature=0, enabling independent verification.
+- A **reproducible record set**: the repository contains 845 valid JSONL records. The v6 JSONL subset documents `seed=42`, `temperature=0`; earlier `chat1`/`chat3` artifacts use different schemas and parameters. Use `python3 scripts/validate_logs.py` to reproduce the count without making network requests.
 
 **This is NOT:**
 - A **definitive benchmark** comparable to MMLU/GSM8K/HumanEval leaderboards. The benchmark items are author-authored subsets in the *style* of MMLU/GPQA/BBH, not the official datasets. Sample sizes (MMLU 25q, GPQA 10q, AIME 5p) are intentionally small for exploratory directional testing.
@@ -48,27 +50,16 @@ This repository contains an independent technical evaluation of **Ling-3.0-flash
 | **Methodology** | Multi-phase evaluation with mandatory verification of every claim against raw JSONL data |
 | **Reproducibility** | `seed=42`, `temperature=0` for v6 JSONL tests (845 entries); `seed=42`, `temperature=0.3` for earlier chat1/chat3 tests (98 JSON files) |
 
-### Why this evaluation matters
+### How to read the findings
 
-Before this work:
-- BenchLM had **0/369** benchmark scores for Ling-3.0-flash
-- No arXiv technical report existed
-- No public prompt injection / jailbreak resistance test
-- Only one prior independent evaluator (NanoGPT) had tested 6 prompts
-
-After this work:
-- First public benchmark scores (MMLU, GPQA, AIME, HumanEval, MBPP, BBH)
-- First public jailbreak resistance test (20/20 DAN-style attacks)
-- First public tool calling validation (45/45 schema-respecting)
-- First public long context needle-in-haystack test (works to 208K tokens)
-- First public reasoning-budget bug characterization (mt=128→100% fail)
+The findings are exploratory observations from the documented samples, not claims of priority, completeness, or production readiness. The benchmark-like items are author-authored subsets and are not the official MMLU, GPQA, BBH, HumanEval, or MBPP test sets. Comparisons with other models are limited to the cases and configurations recorded in the repository. Historical statements about what was or was not publicly available are not independently verified here and should not be read as an exhaustive literature review.
 
 ### Official Ant Group benchmark
 
-For reference, below is the **official benchmark chart** published by Ant Group alongside the model release. It compares Ling-3.0-flash against 7 other leading LLMs across 12 benchmarks (SWE-bench Pro, Terminal-Bench, MCP-Atlas, IFBench, etc.).
+For reference, below is a **vendor-published comparison chart** from Ant Group, included as external context rather than as part of this evaluation. It compares Ling-3.0-flash against 7 other leading LLMs across 12 benchmarks (SWE-bench Pro, Terminal-Bench, MCP-Atlas, IFBench, etc.).
 
 <p align="center">
-  <img src="assets/antgroup_official_benchmark.jpg" alt="Ant Group official benchmark chart for Ling-3.0-flash" width="720">
+  <img src="assets/antgroup_official_benchmark.jpg" alt="Ant Group vendor-published comparison chart for Ling-3.0-flash" width="720">
 </p>
 
 <p align="center"><em>Source: Ant Group / inclusionAI official announcement. Ling-3.0-flash shown in dark blue. Note: Ant Group's internal benchmarks use the model's "thinking mode enabled by default" configuration.</em></p>
@@ -138,7 +129,9 @@ The Ling-3.0-flash model card describes the context window as "256K". The API re
 
 ---
 
-## Test Coverage (845 entries across 12 phases)
+## Test Coverage (845 valid JSONL records across 12 phases)
+
+The total is computed from the 12 files in `raw_data/ling3_v3/logs/` by `scripts/validate_logs.py`. It is a record count. Retry semantics, request billing semantics, and a uniform success/failure field are **Not documented** in the published logs.
 
 <p align="center">
   <img src="assets/test_coverage_pie.png" alt="Test coverage breakdown by phase" width="560">
@@ -198,7 +191,7 @@ When `reasoning_tokens ≥ max_tokens`, the user receives `content=""` with `fin
 
 | Workaround | Effect | Verdict |
 |---|---|---|
-| `reasoning.enabled=false` | r_tk=0, bug eliminated 100% | ✅ **Definitive workaround** |
+| `reasoning.enabled=false` | r_tk=0, bug eliminated 100% | ✅ **Observed workaround in this sample** |
 | `reasoning.effort=low/minimal/medium` | r_tk unchanged (46 default) | ❌ **INERT — placebo** |
 | `max_tokens ≥ 2048` | Bug disappears for trivial prompts | ✅ Works but wasteful |
 | `max_tokens ≥ 4096` | Required for CJK prompts | ✅ Required for Chinese |
@@ -516,7 +509,7 @@ All scripts are idempotent. See [`REPRODUCING.md`](REPRODUCING.md) for step-by-s
 ## Limitations
 
 1. **Sample sizes are small** — MMLU-style 25q vs 14K+ full benchmark; AIME 5p vs 30p full
-2. **Benchmark items are author-authored subsets in the style of MMLU/GPQA/BBH, NOT official benchmark items** — they cover similar subject areas (computer science, math, history, etc.) but are not drawn from the official MMLU/GPQA/BBH datasets. Results are indicative of capability but not directly comparable to leaderboard scores.
+2. **Benchmark items are author-authored subsets in the style of MMLU/GPQA/BBH, NOT vendor benchmark items** — they cover similar subject areas (computer science, math, history, etc.) but are not drawn from the official MMLU/GPQA/BBH datasets. Results are indicative of capability but not directly comparable to leaderboard scores.
 3. **Pass@1 NOT verified** — HumanEval/MBPP code extracted but not executed in sandbox
 4. **Cross-provider NOT tested** — Vercel AI Gateway and Kilo APIs not accessible
 5. **1M context NOT tested** — Only tested to 208K (within 262K hard cap)

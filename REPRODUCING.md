@@ -1,6 +1,6 @@
 # Reproducing the Ling-3.0-flash Evaluation
 
-This guide explains how to reproduce the 845 API calls in this repository, validate the existing JSONL logs, or re-run individual test phases.
+This guide explains how to validate the 845 published JSONL records offline and, separately, how to re-run individual test phases. Offline validation makes no API calls. A full re-run requires access to the documented OpenRouter model and may not reproduce the same provider routing, rate limits, or outputs.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ print(f'\nTotal: {total} entries, {errors} errors')
 "
 ```
 
-Expected output: 845 total entries, 0 errors.
+Expected output: 845 valid records, 0 parse errors. The validator reports missing fields rather than filling them in. Retry semantics and a uniform success/failure classification are not documented consistently, so this count must not be interpreted as 845 unique cases or successful requests.
 
 ### Verify the scorecard math
 
@@ -88,6 +88,22 @@ print(f'Final subjective score: 7.0 (production considerations weighted)')
 print(f'Difference: {simple_avg - 7.0:.2f} (weight on date hallucination, multi-needle bias, multi-turn bug)')
 "
 ```
+
+## Offline summary and smoke test
+
+Run the deterministic summary without credentials or network access:
+
+```bash
+python3 scripts/validate_logs.py
+```
+
+Run the local smoke test (if `pytest` is installed):
+
+```bash
+python3 -m pytest -q tests/test_validate_logs.py
+```
+
+These checks use local files or temporary fixtures only. They do not call OpenRouter and do not modify the published logs.
 
 ## Re-running individual phases
 
