@@ -78,7 +78,7 @@ For reference, below is a **vendor-published comparison chart** from Ant Group, 
 | 2 | **Author-authored MMLU/GPQA-style subsets** (not the original benchmark items and not leaderboard-comparable) | 35 | 100% | [90.1%, 100%] | `phase2_logs.jsonl` |
 | 3 | **AIME-style subset** (5/5 under the documented scoring procedure; one expected answer was incorrect, so this is not treated as a benchmark score) | 5 | 100% | [56.6%, 100%] | `phase2_logs.jsonl` |
 | 4 | **Tool calling schema-respect** (45/45 valid + 0/10 invented params) | 45 | 100% | [92.1%, 100%] | `v6_phase_tool_calling.jsonl` |
-| 5 | **Long context needle-in-haystack** (works to 208K, no lost-in-middle) | 28 | 100% | [87.9%, 100%] | `v6_phase_long_context.jsonl` |
+| 5 | **Long-context single-needle — length-oriented subset** (works to 208K; position analysis reported separately) | 28 | 100% | [87.9%, 100%] | `v6_phase_long_context.jsonl` |
 | 6 | **Determinism in non-thinking mode** (5 prompts × 10 runs, std=0) | 50 | 100% | [92.9%, 100%] | `phase13_logs.jsonl` |
 
 > **Statistical note:** Wilson 95% confidence intervals are shown for each headline claim. For small samples (n<30), intervals are wide — these are directional findings, not definitive benchmarks. See §Limitations for details.
