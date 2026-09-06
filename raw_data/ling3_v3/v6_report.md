@@ -211,7 +211,7 @@ Examinando por position (only longitudes con data suficientes):
 
 ---
 
-## 4. GAP 3: Multi-turn Coding Loop (32 entries)
+## 4. GAP 3: Multi-turn Coding Loop (35 entries)
 
 
 ### 4.1 Resumen por tarea

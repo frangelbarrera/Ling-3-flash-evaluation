@@ -135,7 +135,7 @@ L.append("\n**Ling manual accuracy hasta 208K tokens real.** Los porcentajes baj
 L.append("\n---\n")
 
 # GAP 3: Multi-turn Coding
-L.append("## 4. GAP 3: Multi-turn Coding Loop (32 entries)\n")
+L.append("## 4. GAP 3: Multi-turn Coding Loop (35 entries)\n")
 L.append("\n### 4.1 Resumen por tarea\n")
 L.append("\n| Task | Turns logged | Turns con output | Turns con bug (0-char) | Bug rate |\n")
 L.append("|---|---:|---:|---:|---:|\n")

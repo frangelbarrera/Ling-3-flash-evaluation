@@ -269,7 +269,20 @@ The API returns HTTP 400 with explicit error: "This endpoint's maximum context l
 | ~208,072 (208K target) | 1 | 1 | 100% |
 | ~250,072+ | 6 | 0 | 400 error (exceeds 262K) |
 
-**No "lost in the middle" effect** — accuracy is 100% across all positions (10%, 30%, 50%, 70%, 90%).
+> **Denominator note:** The `n=28` headline is the sum of the seven successful length-oriented groups above: 5 + 5 + 5 + 5 + 6 + 1 + 1. It is not the same aggregation as the position-controlled analysis below.
+
+### Position-controlled single-needle analysis
+
+| Needle position | HTTP 200 tests | Found | Rate |
+|---:|---:|---:|---:|
+| 10% | 7 | 7 | 100% |
+| 30% | 7 | 7 | 100% |
+| 50% | 9 | 9 | 100% |
+| 70% | 7 | 7 | 100% |
+| 90% | 8 | 8 | 100% |
+| **Total** | **38** | **38** | **100%** |
+
+The `38/38` figure above uses all successful HTTP 200 position-controlled single-needle records in the v6 logs. It excludes the 22 multi-needle conflict records and the six HTTP 400 boundary cases. The `n=28` length-oriented headline and the `38/38` position-controlled result are valid, different denominators and should not be conflated.
 
 ### Multi-needle conflict bias
 
