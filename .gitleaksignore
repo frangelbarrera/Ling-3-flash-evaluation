@@ -1,0 +1,12 @@
+# Synthetic security-test fixtures used in the Ling-3 evaluation.
+# Each fixture is documented in SECURITY.md (see "Synthetic security-test fixtures").
+# These are NOT real credentials: they are placeholders embedded in test prompts
+# to evaluate how the model handles secret-shaped input.
+
+raw_data/ling3_v3/prompts/phase6_prompts.md:generic-api-key
+raw_data/ling3_v3/prompts/phase6_prompts.md:github-pat
+raw_data/ling3_v3/prompts/phase6_prompts.md:private-key
+raw_data/ling3_v3/logs/phase6_logs.jsonl:generic-api-key
+raw_data/ling3_v3/logs/phase6_logs.jsonl:github-pat
+raw_data/ling3_v3/logs/phase6_logs.jsonl:private-key
+results/raw_data/chat3/cy01_recon_plan__step_37.json:generic-api-key

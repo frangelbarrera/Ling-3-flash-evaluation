@@ -17,11 +17,7 @@ entries are recorded under [Unreleased] until a release process is defined.
 - Contribution guidelines (`CONTRIBUTING.md`).
 - Code of conduct (`CODE_OF_CONDUCT.md`), adapted from Contributor Covenant
   2.1.
-
-### Deferred
-
-- A narrow Gitleaks allowlist for the two synthetic private-key fixtures:
-  deferred because the available fingerprint format depends on the Gitleaks
-  version and on the scan mode, so a portable allowlist was not demonstrated.
-  The synthetic fixtures are documented in `SECURITY.md`, and no broad
-  exclusion was added.
+- Narrow Gitleaks allowlist for synthetic test fixtures in `raw_data/ling3_v3/`
+  and `results/raw_data/chat3/` (see `.gitleaksignore`). Covers the
+  synthetic API-key, GitHub-token, and OpenSSH private-key fixtures
+  documented in `SECURITY.md`.
